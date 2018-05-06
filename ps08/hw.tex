@@ -1,0 +1,84 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 8 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item 1 mol of gold weighs $\SI{197}{\g}$, so 1 gram of gold is $1/197 = \SI{0.00508}{\mol}$. The the total number of gold atoms we need to produce is
+    \begin{equation*}
+        \SI{0.00508}{\mol} \cdot \SI{6.022e23}{\mol^{-1}} = 3.057\times10^{21}
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \frac{3.057\times10^{21}}{\SI{20000}{\s^{-1}}} = \SI{1.53e17}{\s} = \SI{4.85}{\giga\year}
+    \end{equation*}
+    At this rate, it would take about a third of the age of the universe to create a single gram of gold.
+
+    \item Let the volume of the right chamber be 1, and let $R=1$. Then the pressure in the right chamber is
+    \begin{equation*}
+        P_R = \frac{nRT}{V} = 290
+    \end{equation*}
+    The chamber on the right is about 5 times larger, so $V\approx 5$. Then
+    \begin{equation*}
+        P_L = \frac{nRT}{V} = \frac{350}{5} = 70
+    \end{equation*}
+    The piston will move right when released, because the pressure in the right chamber is far higher.
+
+    \item Let $a = nRT$. Then $\SI{0.3}{m^3}(\SI{200}{\bar}) = a = V(\SI{1}{\bar}) \implies V = \SI{60}{\m^3}$.
+    Then the number of balloons that can be filled is $\SI{60}{\m^3}/\SI{0.01}{\m^3} = 6000$.
+
+    \item The heat needed to bring the tea down from $\SI{100}{\celsius}$ to $\SI{65}{\celsius}$ is
+    \begin{equation*}
+        Q = cmT = (\SI{1}{\calorie/\gram\celsius})(\SI{200}{\g})(\SI{-35}{\celsius}) = \SI{-7000}{\calorie}
+    \end{equation*}
+    Because the ice will melt after being put into the glass, the enthalpy of fusion must also be considered. Therefore, the energy required to bring 1 gram of ice to $\SI{65}{\celsius}$ is
+    \begin{equation*}
+        Q = 0.5 * \SI{15}{\celsius} + 79.72 + 1*\SI{65}{\celsius} = \SI{152.2}{\calorie/\g}
+    \end{equation*}
+    Then
+    \begin{equation*}
+        \frac{\SI{7000}{\calorie}}{\SI{152.2}{\calorie/\g}} = \SI{45.98}{\gram}
+    \end{equation*}
+    so about 46 grams of ice are needed to bring the tea to a comfortable temperature (it'll be very watered down, though.)
+
+\end{enumerate}
+
+
+\end{document}

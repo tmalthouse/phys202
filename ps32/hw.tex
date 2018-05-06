@@ -1,0 +1,93 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 32 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item There are $2^N$ ways to arrange this lattice.
+
+        \item Define the fully demagnetized state to be when exactly half the spins are pointed up. The number of microstates that satisfy this criterion is
+        \begin{equation*}
+            \begin{pmatrix}N \\ N/2 \end{pmatrix} = \frac{N!}{2(N/2)!} = \frac{N!}{((N/2)!)^2}
+        \end{equation*}
+        Since there are 2 ways for the bar to be fully magnetized, the entropy of this state is
+        \begin{equation*}
+            S_{m} = k_B \log 2
+        \end{equation*}
+        and the entropy of the fully demagnetized state is
+        \begin{align*}
+            S_{d} &= k_B \log \frac{N!}{((N/2)!)^2} = k_B \left(\log N! - \log ((N/2)!)^2 \right) \\
+            &= k_B \left(\log N! - 2\log (N/2)!\right) \\
+            &\approx k_B \left(
+                (N \log N - N) - (N \log N/2 - N)
+            \right) \\
+            &= k_B N (\log N - \log N/2) \\
+            &= k_B N \log 2 N
+        \end{align*}
+        The difference in entropy is therefore
+        \begin{equation*}
+            \Delta S = k_B (N \log 2 N - \log 2)
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item Starting with
+        \begin{align*}
+            \langle E \rangle &= -\frac{d}{d\beta}\log Z \\
+            &= -\frac{d}{dT} \frac{dT}{d\beta} \log(z) \\
+            &= \frac{d}{dT} \log Z k T^2 \\
+            &= 2\log Z kT
+        \end{align*}
+    \end{enumerate}
+
+    \item The Fermi energy for a particle in this gas is (by definition)
+    \begin{equation*}
+        E_F = \frac{h^2}{2m}\left(\frac{3N}{8\pi V}\right)^{2/3}
+    \end{equation*}
+    The mean energy of such a gas is then given by
+    \begin{align*}
+        \langle E \rangle &= \frac{1}{N} \int_{0}^{\infty} E N(E) dE \\
+        &= \frac{3h^3}{16\pi V \sqrt{2} m^{3/2} E_F^{3/2}} \int_{0}^{\infty} EN(E)dE
+        \intertext{However, because the Fermi-Dirac distribution function is 1 below $E_F$ and 0 above,}
+        &= \frac{3h^3}{16\pi V \sqrt{2} m^{3/2} E_F^{3/2}} \frac{8\pi V \sqrt{2}m^{3/2}}{h^3}
+        \int_{0}^{E_f} E^{3/2} = \frac{3}{5}E_F
+    \end{align*}
+
+    \item \begin{enumerate}
+        \item The total energy of the initial kaon is $E_k = m_kc^2$. Then the total energy of each of the pions must be $E_\pi = E_k/2 = m_kc^2/2$. If the rest mass of each pion is $m_\pi$, its rest energy is $m_\pi c^2$. Then
+        \begin{equation*}
+            E^2 = (pc)^2 + (mc^2)^2 \implies (m_k c^2/2)^2 = (pc)^2 + (m_\pi c^2)^2 \implies |p| = \frac{1}{2}c\sqrt{m_k^2-4m_\pi^2}
+        \end{equation*}
+        and, since
+        \begin{equation*}
+            \frac{v}{c} = \frac{pc}{E},
+        \end{equation*}
+        \begin{equation*}
+            v = \frac{pc^2}{E} = \frac{\sqrt{m_k^2-4m_\pi^2}}{m_k} c
+        \end{equation*}
+
+        \item The kaon has a mass of $\SI{497.6}{\mega\electronvolt/c^2}$, and the pion has a mass of $\SI{139.6}{\mega\electronvolt/c^2}$. Plugging these values into the equations above gives
+        \begin{align*}
+            E_\pi &= \SI{248.8}{\mega\electronvolt} \\
+            p_\pi &= \SI{205.9}{\mega\electronvolt/c} \\
+            v_\pi &= \SI{0.827}{c}
+        \end{align*}
+    \end{enumerate}
+  \end{enumerate}
+\end{document}

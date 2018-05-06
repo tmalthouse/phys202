@@ -1,0 +1,88 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[margin=0.75in]{geometry}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 30 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item There are 3 possible macrostates:
+
+        \begin{tabular}{cccc}
+            \hline \hline
+            $0$ & 1 & 2 & 3 \\ \hline
+            ** & & & * \\
+            * & * & * & \\
+            & *** & & \\ \hline \hline
+        \end{tabular}
+
+        \item The number of microstates for each of the macrostates above is 3, 6, and 1, respectively.
+
+        \item The probability of finding one of the particles with 2 units of energy is $0.6$. The probability of finding one with an energy of 0 is $0.9$.
+    \end{enumerate}
+
+    \item The possible macrostates are:
+
+    \begin{tabular}{cccccccccccc}
+        \hline \hline
+        \multicolumn{9}{c}{} & \multicolumn{3}{c}{\# of microstates} \\
+        0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & classical & integral spin & half-int spin\\ \hline
+        *** & & & & & & & & * & 4 & 1 & 0\\
+        ** & * & & & & & & * & & 12 & 1 & 1 \\
+        * & ** &  & & & & * & & & 12 & 1 & 1 \\
+        ** & * & * & & & & * & & & 12 & 1 & 1 \\
+        ** & & & * & & * & & & & 12 & 1 & 1\\
+        * & * & * & & & * & & & & 24 & 1 & 1\\
+          & *** & & & & * & & & & 4 & 1 & 0\\
+        ** & & & & ** & & & & & 6 & 1 & 1\\
+        * & * & & * & * & & & & & 24 & 1 & 1\\
+          & ** & * & & * & & & & & 12 & 1 & 1\\
+        * & & ** & & * & & & & & 12 & 1 & 1\\
+        * & & * & ** & & & & & & 12 & 1 & 1\\
+         & ** & & ** & & & & & & 6 & 1 & 1\\
+        & * & ** & * & & & & & & 12 & 1 & 1\\
+         & & **** & & & & & & & 1 & 1 & 0\\ \hline \hline
+    \end{tabular}
+
+    With classical distinguishable particles, the probability of finding a particle with energy 2 is $(85/165) = 0.515$. With integer-spin particles, the probability is $(7/15) = 0.467$. With half-spin particles, the probability is $(6/12) = 0.5$.
+
+    \item The expression
+    \begin{equation*}
+        \frac{1}{2}m_1 \langle v_1^2 \rangle = \langle K_1 \rangle,
+    \end{equation*}
+    since kinetic energy is given by $\frac{1}{2}mv^2$, and the value $\langle v^2 \rangle$ is the expectation value of velicty squared. Since the relation $\langle \vec{w}\cdot \vec{v}_{cm} \rangle = 0$ when the system is in thermal equilibrium, the kinetic energy of all molecules of gas must, on average, be equal. Therefore,
+    \begin{equation*}
+        K_1 = K_2 \implies \frac{1}{2}m_2 \langle v_2^2 \rangle = \frac{1}{2}m_2 \langle v_2^2 \rangle
+    \end{equation*}
+
+    \item \begin{enumerate}
+        \item For standing waves to occur, the total length of the standing wave must be an integer multiple of $\lambda/2$. Since this condition is satisfied here, a standing wave can form.
+
+        \item The Bohr model states that the angular momentum must be an integer multiple of $\hbar$---that is, that $mvr = n\hbar$. The de Broglie wavelength is defined to be $\lambda = h/p$, giving that $p = h/\lambda$. Then $L = r\times p = rh/\lambda$ and, since $C = 2\pi r = n \lambda$, we get that
+        \begin{equation*}
+            L = \frac{n h}{2\pi} = n\hbar
+        \end{equation*}
+
+        \item We have that $mvr = n\hbar$, and that $r = n \lambda / 2\pi$ Combining the two gives
+        \begin{equation*}
+            \frac{mvn\lambda}{2\pi} = n\hbar \implies v = \frac{h}{m\lambda}
+         \end{equation*}
+    \end{enumerate}
+
+
+
+  \end{enumerate}
+\end{document}

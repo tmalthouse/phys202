@@ -1,0 +1,86 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 23 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item The force on the electron in the electric field is given by $F_E = e E$, where $e$ is the charge of the electron, and the time spent in the field is $t=\ell/v$. Therefore, the final $y$-velocity is
+        \begin{equation*}
+            v_y = \frac{\ell}{v} \frac{e E}{m_e}
+        \end{equation*}
+        and so the final angle is
+        \begin{equation*}
+            \theta_E = \arctan \left(\frac{\frac{\ell}{v} \frac{e E}{m_e}}{v}\right) =
+            \arctan \left(\frac{\ell e E}{m_e v^2}\right)
+        \end{equation*}
+
+        \item The force on the electron in this magnetic field is $F_B = qv\times B$. Because, for circular movement like this,
+        \begin{equation*}
+            r = \frac{mv^2}{F} = \frac{m v}{e B},
+        \end{equation*}
+        Then, through setting up a system of similar triangles,
+        \begin{equation*}
+            \theta_B = \arcsin\left(\frac{\ell e B}{m v}\right)
+        \end{equation*}
+
+        \item Using the small-angle approximations for both $\tan$ and $\sin$, when $\theta_B = \theta_E$,
+        \begin{equation*}
+            \frac{\ell e E}{m_e v^2} \approx \frac{\ell e B}{m_e v} \implies E \approx vB
+        \end{equation*}
+        \begin{equation*}
+            e = \frac{6\pi \eta r (v_1+v_2)}{(1+n)E}
+        \end{equation*}
+    \end{enumerate}
+
+    \item
+    Let the electric field be given by $E = V/d$. Then, in the initial state, we have that
+    \begin{equation*}
+        m_e g = E e n \implies m_e = \frac{E e n}{g}
+    \end{equation*}
+    where $n$ is the number of electrons above neutral. Then, after it loses a single electron,
+    \begin{equation*}
+        E e (n+1) = 6 \pi\eta r v_1 + m_e g
+    \end{equation*}
+    and finally,
+    \begin{equation*}
+        m_e g = 6\pi\eta r v_2
+    \end{equation*}
+    \begin{equation*}
+        E e (n+1) = 6 \pi\eta r (v_1+v_2)
+    \end{equation*}
+
+
+    \item \begin{enumerate}
+        \item This equation for force is identical to the one for a simple harmonic oscillator, so the angular frequency, $\omega$, is just
+        \begin{equation*}
+            \omega = \sqrt{k/m} = \sqrt{\frac{e^2}{4\pi\epsilon_0R^3 m_e}} = \SI{4.125}{\radian/\s}
+        \end{equation*}
+        Then
+        \begin{equation*}
+            \lambda = \frac{2\pi c}{\omega} = \SI{4.57e-8}{\meter} = \SI{45.7}{\nano\meter}
+        \end{equation*}
+        This is very different from the strongest emission line in hydrogen.
+
+
+        \item With sodium,
+        \begin{equation*}
+            \omega = \SI{6.59e15}{\radian/\s}
+        \end{equation*}
+        and
+        \begin{equation*}
+            \lambda = \SI{2.86e-7}{\m} = \SI{286}{\nano\meter}
+        \end{equation*}
+        This wavelength is also off from the actual value by a significant factor.
+    \end{enumerate}
+  \end{enumerate}
+\end{document}

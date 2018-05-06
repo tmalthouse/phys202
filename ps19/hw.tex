@@ -1,0 +1,96 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 19 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item $A \cos kx$ where $x<0$ cannot be a solution to the Schr\"odinger equations because, for no value of $A$, does
+            \begin{equation*}
+                \int_{-\infty}^{\infty} (A \cos kx)^2 dx = 1.
+            \end{equation*}
+            The only possible values for this integral are 0 (for $A=0$) and $\infty$. The same reasoning applies for $A \sin kx$ where $x>0$.
+
+            \item This function cannot be a solution to the S equation because it has a discontinuity at $x=0$.
+
+            \item This function cannot be a solution because, like with the normal $\sin$ case above, there is no way to normalize it.
+
+            \item The tangent function has discontinuities at every $\pi/2 + n \pi$, where $n \in \Z$.
+        \end{enumerate}
+
+        \item The wavelength of the wave functions would be longer, the mean energy would be lower, and the mean position would be shifted to the right by $L/2$.
+
+        \item There would be no change. Because potential energy is relative, a new ground state could be set, and this problem would be identical to the original one.
+    \end{enumerate}
+
+        \item Using the formula derived in class (and in Krane), we know the $n$th wavefunction is given by
+        \begin{equation*}
+            \psi_n = A\cos (kx) = A_n \cos \frac{n \pi x}{a}
+        \end{equation*}
+        where $A$ is set so that the intensity integral
+        \begin{equation*}
+            \int_{-a/2}^{a/2} A \cos \frac{n \pi x}{a} dx = \frac{2 a A \sin \left(\frac{\pi  n}{2}\right)}{\pi  n} = 1
+            \implies A_n = \frac{\pi  n \csc \left(\frac{\pi  n}{2}\right)}{2 a}
+        \end{equation*}
+        Then the energy of the $n$th state is given by
+        \begin{equation*}
+            E_n = \frac{\hbar^2k^2}{2m} = \frac{\hbar^2n^2}{8ma^2}
+        \end{equation*}
+
+        \item The wavefunction solution for this scenario is of the form
+        \begin{equation*}
+            \phi_n(x) = A \sin (n \pi x/a)
+        \end{equation*}
+        Since intensity is given by $\phi_n^2$, there are always an integer number of peaks between the walls of the well. Therefore, there is a line of symmetry at the point $a/2$, over which the intensity distribution can be reflected without changing it. Since the two sides are symmetric, the integral underneath them must be the same, and so the expectation value is at $x = a/2$.
+
+        \item The position of the event in frame $S'$ is
+        \begin{equation*}
+            2x_0 = \frac{x_0-vt}{\sqrt{1-(v/c)^2}}
+        \end{equation*}
+        If we set $x'=x$ and solve, we get that
+        \begin{equation*}
+            v = \frac{c^2 t x_0+2 \sqrt{c^4 t^2 x^2+3 c^2 x_0^4}}{c^2 t^2+4 x_0^2}
+        \end{equation*}
+    \end{enumerate}
+
+
+\end{document}

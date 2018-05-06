@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\vec}{\mathbf}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 267 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item The magnitude of the spin for this particle is
+        \begin{equation*}
+            |\hat{\vec{S}}| = \sqrt{s(s+1)}\hbar = \sqrt{\frac{15}{4}}\hbar
+        \end{equation*}
+        with z-component $S_z = m_s\hbar = \pm(1/2)\hbar$. The angle with the $z$-axis is then given by
+        \begin{equation*}
+            \theta = \arccos \left(\frac{1}{2\sqrt{15/4}}\right) \approx 0.417\pi
+        \end{equation*}
+
+        \item Because no electric field is applied, the degeneracy with spin is the same as without spin, so this state has a degeneracy of 25.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The energy levels would be larger in a muonic hydrogen atom, compared to a normal hydrogen atom. This happens because the energy levels of electrons in hydrogen are given by
+        \begin{equation*}
+            E_n = -\frac{me^4}{32\pi^2\epsilon_0^2\hbar^2n^2}.
+        \end{equation*}
+        Therefore, replacing an electron with a higher-mass particle with the same charge would increase the energy levels.
+
+        \item The magnetic moment would be smaller. It is given by
+        \begin{equation*}
+            \mathbf{\mu}_L = -(e/2m)\vec{L}
+        \end{equation*}
+        so increasing the mass would decrease the magnetic moment.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item \begin{enumerate}
+            \item This decreases the count rate, since high-angle scatters have a lower probability of occurring.
+            \item This decreases the count rate, since the scattering angle off each atom is (on average) decreased.
+            \item The count rate increases, since the higher-charge nuclei exert a greater force on the incident particle.
+            \item The count rate decreases, since the charge-mass ratio of the incident particle decreases.
+            \item The count rate decreases, since there are on average less interactions per particle.
+        \end{enumerate}
+        \item Let the foil be $n$ atoms thick, with a distance $D$ between atoms. Assume the charge-to-mass ratio of both the target and projectile is the same (true within an order of magnitude, since both are made of nucleons). Then
+        \begin{equation*}
+            F_E = \frac{q_tq_p}{4\pi\epsilon_0} \propto \frac{R_t^3R_p^3}{r^2} \implies a_E \propto \frac{R_t^3}{r^2}
+        \end{equation*}
+        Note that the acceleration only depends on the target radius---this does not contradict part iv. from above, because we are assuming a constant charge-to-mass ratio here. Assume that the particle will be scattered $n$ times as it passes through the foil, each time passing a random distance $d$ (where $0<d<D$, uniformly distributed) from the nearest nucleus. 
+    \end{enumerate}
+  \end{enumerate}
+\end{document}

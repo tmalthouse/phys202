@@ -1,0 +1,106 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 16 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Because photons are discrete, increasing the energy of the incident photons does not increase the number of electrons freed---it just increases the energy of each freed electron.
+
+        \item Assuming the original photons all had enough energy to free an electron, doubling the frequency would not change the number of electrons freed for the reason explained in (a). Doubling the wavelength decreases the energy of each photon, and may decrease it to the point where they cannot free electrons. Finally, doubling the intensity would double the current, since the number of photons that could free electrons would be doubled.
+
+        \item The electron has its own momentum as it orbits its nucleus, and that momentum gets added to the photon's. If the two momenta are not in the same direction, the electron ejection direction will not the the same direction as the incident photon.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item A single photon at $\SI{550}{\nano\m}$ has an energy of
+        \begin{equation*}
+            E = \frac{hc}{\lambda} = \frac{(\SI{6.626e-34}{\joule/\s})(\SI{3e8}{\m/\s})}{\SI{550}{\nano\meter}} \approx \SI{1.43e-19}{\joule}
+        \end{equation*}
+        Then, since the light is 75\% efficient and consumes $\SI{55}{\watt}$ of electricity, it produces $\SI{41.25}{\watt}$ of light. If the bulb runs for an hour, the total energy output is
+        \begin{equation*}
+            \SI{41.25}{\watt\hour} = \SI{148500}{\watt\second} = \SI{148500}{\joule}
+        \end{equation*}
+        Then the number of photons, $N$, is given by
+        \begin{equation*}
+            N = \frac{\SI{148500}{\joule}}{\SI{1.43e-19}{\joule}} = \SI{1.037e24}{}
+        \end{equation*}
+
+        \item The number of photons output per second is
+        \begin{equation*}
+            \si{\text{N}/\s} = \frac{\SI{41.25}{\watt}}{\SI{1.43e-19}{\joule}} = \SI{2.88e20}{\s^{-1}}
+        \end{equation*}
+        Then the area of this $\SI{1}{\m}$ sphere is
+        \begin{equation*}
+            A = 4\pi r^2 = 4 \pi
+        \end{equation*}
+        and the area of the square is $\SI{0.01}{\m^2}$. Thus the number of photons per second hitting this paper is
+        \begin{equation*}
+            \frac{\SI{0.01}{\m^2}}{\SI{4\pi}{\m^2}}\SI{2.88e20}{\s^{-1}} = \SI{2.292e17}{s^{-1}}
+        \end{equation*}
+    \end{enumerate}
+
+    \item If $E_{\text{max}}$ is the maximum measured energy of free electrons (given by the stopping potential), then
+    \begin{equation*}
+        E_{\text{photon}} = E_{\text{max}} + \phi
+    \end{equation*}
+    In the first case of this problem, $E_{\text{max}} = \SI{0.65}{\eV} = \SI{1.041e-19}{\joule}$, so therefore
+    \begin{equation*}
+        \frac{(\SI{3e8}{\m/\s})h}{\SI{420}{\nm}} = \SI{1.041e-19}{\joule} + \phi
+    \end{equation*}
+    Then in the second case,
+    \begin{equation*}
+        \frac{(\SI{3e8}{\m/\s})h}{\SI{310}{\nm}} = \SI{2.708e-19}{\joule} + \phi
+    \end{equation*}
+    Solving for $h$ and $\phi$ gives that
+    \begin{equation*}
+        h = \SI{6.577e-34}{\joule/\s}, \qquad \phi = \SI{3.65e-19}{\joule} = \SI{2.28}{\eV}
+    \end{equation*}
+
+    \item Since the electron is traveling in the same direction as the photon was, all the photon's momentum was transferred to the electron. The original photon had a momentum of
+    \begin{equation*}
+        p_{\text{photon}} = \frac{h}{\lambda} = \frac{\SI{6.626e-34}{\joule/\s}}{\SI{7.52}{\pm}} = \SI{8.813e-23}{\kg\m/\s}.
+    \end{equation*}
+    Since all of the photon's momentum went to the electron, this is also the momentum of the electron. 
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+    \begin{enumerate}
+        \item[3.-1] Setting $x$ and $y$ to 0 gives that
+        \begin{equation*}
+            \vec{B}(\vec{r}) = \frac{\mu_0 I R}{4\pi} \int_{0}^{2\pi} \frac{z \cos \phi \hat{x} + z\sin \phi \hat{y} + R \hat{z}}{\left(R^2\cos^2\phi + R^2 \sin^2 \phi + z^2\right)^{3/2}} d\phi
+        \end{equation*}
+        However, because $\int_{0}^{2\pi} \cos \theta d\theta = 0$ (and similarly for $\sin$),
+        \begin{equation*}
+            \vec{B}(\vec{r}) = \frac{\mu_0 I R}{4\pi} \int_{0}^{2\pi} \frac{R \hat{z}}{\left(R^2 + z^2\right)^{3/2}} d\phi
+            = \frac{\mu_0 I R}{4\pi} \frac{2\pi R}{(R^2+z^2)^{3/2}} =
+            \frac{\mu_0 I R^2}{2(R^2+z^2)^{3/2}}
+        \end{equation*}
+
+        \item[3.0] 1.23 states
+        \begin{equation*}
+            I \approx \sum_{j=0}^{n-1} \frac{1}{2} (F_j+F_{j+1}) \Delta x \equiv I_t
+        \end{equation*}
+        and 1.19 states that
+        \begin{equation*}
+            I \approx \sum_{j=0}^{n-1} F_j \Delta x \equiv I_b
+        \end{equation*}
+        We can see that the first term of the trapezoidal approximation is
+        \begin{equation*}
+            I_{t,1} = \frac{1}{2} (F_1 + F_2) \Delta_x
+        \end{equation*}
+        and the second is
+        \begin{equation*}
+            I_{t,2} = \frac{1}{2} (F_2 + F_3) \Delta_x
+        \end{equation*}
+        with their sum being
+        \begin{equation*}
+            I_{t,1+2} = \frac{1}{2}F_1 + F_2 + \frac{1}{2}F_3
+        \end{equation*}
+        It follows that
+        \begin{equation*}
+            I_t = I_b - \frac{1}{2}F_1 + \frac{1}{2}F_n
+        \end{equation*}
+    \end{enumerate}
+\end{document}

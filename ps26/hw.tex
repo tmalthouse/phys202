@@ -1,0 +1,65 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 26 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item The 16 possible sets of quantum numbers for $n=4$ are
+
+        \begin{tabular}{rrr|rrr}
+            \toprule
+            $n$ & $l$ & $m_l$ & $n$ & $l$ & $m_l$ \\
+            4 & 0 & 0 & 4 & 2 & -2 \\
+            4 & 1 & 0 & 4 & 3 & 0 \\
+            4 & 1 & 1 & 4 & 3 & 1 \\
+            4 & 1 & -1 & 4 & 3 & -1 \\
+            4 & 2 & 0 & 4 & 3 & 2 \\
+            4 & 2 & 1 & 4 & 3 & -2 \\
+            4 & 2 & -1 & 4 & 3 & 3 \\
+            4 & 2 & 2 & 4 & 3 & -2
+        \end{tabular}
+
+        \item \begin{itemize}
+            \item The possible values of $l$ when $n=6$ are $0, 1, \dots, 5$.
+            \item The possible values of $m_l$ when $l=6$ are $0, 1, \dots 6$.
+            \item The smallest $n$ for which $l$ can be 4 is $n=5$.
+            \item The smallest possible $l$ that has a $z$-component of $4\hbar$ is $l=4$.
+        \end{itemize}
+    \end{enumerate}
+    \item The radial component of the wavefunction for this set of qunatum numbers is
+    \begin{equation*}
+        R(r) = \frac{1}{(2a_0)^{3/2}} \left( 2-\frac{r}{a_0} \right) e^{-r/2a_0}
+    \end{equation*}
+    so the radial probability is given by
+    \begin{equation*}
+        |R(r)|^2 = \frac{1}{(2a_0)^3} \left( 2 - \frac{r}{a_0} \right)^2 e^{-r/{a_0}}
+    \end{equation*}
+    Differentiating and solving for roots gives that there are extrema at $r=2a_0$ and $r=4a_0$. Plugging these into the original function gives that $R(2a_0) = 0$ and $R(4a_0) = -1/\sqrt{2} a_0^{3/2}e^2$, so the maximum is at $r=4a_0$.
+
+    \item For the 1s state of hydrogen,
+    \begin{align*}
+        r_{\text{av}} &= \int_0^\infty r P(r) dr = \int_0^\infty r^3 |R(r)|^2 dr =
+        \int_0^\infty r^3 \left(\frac{2}{a_0^{3/2}}e^{-r/a_0}\right)^2 dr
+        = \int_0^\infty r^3 \frac{4}{a_0^3}e^{-2r/a_0} dr = \frac{3}{2} a_0
+      \end{align*}
+      This is larger than the Bohr radius because the `long tail' of the decaying exponential term means there is a small probability of the electron being found at large radii, which then drag the overall mean upwards.
+
+      \item The average potential energy in this situation is
+      \begin{equation*}
+          U_{\text{av}} = \int_0^\infty U(r)P(r) = \int_0^\infty -\frac{e^2}{\pi\epsilon_0a_0^3} r \exp(-2r/a_0) dr =
+          -\frac{e^2}{4a_0\pi\epsilon_0} = \SI{-27.213}{\electronvolt}
+      \end{equation*}
+      This is larger than the Bohr model prediction for $n=1$, which predicted an average potential of $-\SI{13.6}{\electronvolt}$.
+  \end{enumerate}
+\end{document}

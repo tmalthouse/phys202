@@ -1,0 +1,109 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose,
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage[separate-uncertainty=true]{siunitx}
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{Johnson Noise}% Force line breaks with \\
+
+\author{Thomas Malthouse}
+\affiliation{%
+Reed College\\
+3203 SE Woodstock Blvd, Portland OR 97202
+}%
+
+\maketitle
+
+\section{Data and Error Analyses}
+
+Table \ref{maintab} shows the measurements gathered for this experiment. The values of $A_{ext}$, $B_{ext}$, and $C_{ext}$ actually represent time-averaged values of those measurements---six instantaneous measurements were taken for each setting, and averaged to minimize the effect of noise. The procedure detailed in the experimental design section (supposedly) was then used to calculate an estimated value of $k$, which is also shown in the table.
+
+Averaging these values of $k$ results in a mean value of $k=\SI{2\pm1e-21}{\joule/\kelvin}$---inconsistent with the accepted value of $\SI{1.38e-23}{\joule/\kelvin}$. However, there was also wide variation among the values calculated for $k$, with a few consistent with the expected value but most far above or below the accepted value. The wide variation indicates some source of experimental error, either in the data collection process or in the calculations.
+
+Looking at the table, some systematic errors quickly become apparent. For both the high and low temperatures, the second and fourth measurements seem unusually large, potentially indicating miscalibration or data collection errors for those settings. If we treat those measurements as erroneous (which may not be proper, given we're discarding half our data), averaging the remaining values gives $k=\SI{3.5\pm1.6e-23}{\joule/\kelvin}$---consistent with the accepted value. This provides further evidence of some problem with these measurements.
+
+Besides the systemic error affecting some of the data, all the calculated values of $k$ suffer from very high uncertainty---about as large as the magnitude. This stems largely from the high uncertainty in the capacitance---a value of $\SI{150\pm50}{\pico\farad}$ was used for calculations---and was magnified during the calculation of $(\Delta \nu)_\text{eff}$. A more accurate estimate of the system's internal capacitance would reduce the magnitude of this uncertainty and improve the precision of the calculated value of $k$.
+
+\section{Conclusions}
+
+The calculated value for $k$, $\SI{2\pm1e-21}{\joule/\kelvin}$, is inconsistent with the accepted value of $\SI{1.38e-23}{\joule/\kelvin}$---likely due to systematic error in collection of some measurements. Discarding measurements that seem to be affected by this systemic error results in an average of $k=\SI{3.5\pm1.6e-23}{\joule/\kelvin}$, which is consistent with the accepted value. However, doing this risks falling prey to confirmation bias, since the larger cluster of measurements were only discarded because they were too far from the accepted value.
+
+Otherwise, the largest source of error was from the internal capacitance of the measurement apparatus, which was not well-known and contributed to large uncertainties in the final measurements of $k$. Getting a more precise measurement of this value would decrease the error in $k$, but may be difficult to do given the complexity of the system and its relatively small capacitance. Recalibrating the system also has the potential to decrease errors, and the systemic error shown in the data suggests that some of the settings may be miscalibrated. Taking more instantaneous measurements of the voltage for each setting may also help reduce the final error, as would more precise measurements of the resistors at room temperature. Finally, more measurements---over a larger range of frequencies and temperatures---would lower the error of the average, and could provide insight into the nature of the systemic error.
+
+
+
+\begin{table*}[h]
+\centering
+\begin{tabular}{cccccccc} \hline \hline
+Temp. (K) & $\nu_1$ (Hz) & $\nu_2$ (Hz) & Gain & $A_{ext}$ (V) & $B_{ext}$ (V) & $C_{ext}$ (V) & $k \,(\si{\joule/\kelvin})$ \\ \hline
+$296\pm2$ & $30\pm0$ & $1003\pm1$ & $3997\pm7$ & $0.038\pm0.001$ & $0.141\pm0.001$ & $0.967\pm0.001$ & $\SI{ 4.051 \pm 4.256e-24}{}$\\
+$296\pm2$ & $301\pm0$ & $1003\pm1$ & $3997\pm7$ & $0.037\pm0.001$ & $0.138\pm0.001$ & $0.951\pm0.001$ & $\SI{ 4.475 \pm 4.703e-22}{}$\\
+$296\pm2$ & $301\pm0$ & $3344\pm3$ & $2998\pm5$ & $0.070\pm0.001$ & $0.259\pm0.001$ & $1.428\pm0.001$ & $\SI{ 5.476 \pm 5.488e-24}{}$\\
+$296\pm2$ & $3007\pm3$ & $3344\pm3$ & $2998\pm5$ & $0.055\pm0.001$ & $0.203\pm0.001$ & $1.024\pm0.001$ & $\SI{ 6.069 \pm 6.083e-22}{}$\\
+$77\pm2$ & $30\pm0$ & $1003\pm1$ & $7994\pm14$ & $0.156\pm0.001$ & $0.266\pm0.001$ & $1.132\pm0.001$ & $\SI{ 3.741 \pm 3.901e-23}{}$\\
+$77\pm2$ & $301\pm0$ & $1003\pm1$ & $7994\pm14$ & $0.152\pm0.001$ & $0.260\pm0.001$ & $1.102\pm0.001$ & $\SI{ 5.206 \pm 5.428e-21}{}$\\
+$77\pm2$ & $301\pm0$ & $3344\pm3$ & $4996\pm9$ & $0.197\pm0.001$ & $0.336\pm0.001$ & $1.205\pm0.001$ & $\SI{ 8.342 \pm 7.627e-23}{}$\\
+$77\pm2$ & $3007\pm3$ & $3344\pm3$ & $5995\pm10$ & $0.223\pm0.001$ & $0.382\pm0.001$ & $1.270\pm0.001$ & $\SI{ 1.274 \pm 1.165e-20}{}$ \\ \hline \hline
+\end{tabular}
+\caption{\label{maintab} This table gives the measured voltages over the three resistors at various frequency, gain, and temperature settings. The values given for $k$ were calculated using the method detailed in the experimental design. Note the clear pattern in $k$, where the 2nd and 4th values for each temperature are far larger than the others.}
+\end{table*}
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******

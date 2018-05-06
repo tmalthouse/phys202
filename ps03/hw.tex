@@ -1,0 +1,81 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 3 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item Let the length of the rod in the y direction be 1 (which is constant, since the travel is in the x-direction). Then its apparent length in the x direction for the stationary observer is given by
+    \begin{equation*}
+        \tan(\SI{31}{\degree}) = 1/x \implies x = 1.664
+    \end{equation*}
+    Then, for the moving observer, its x-length is
+    \begin{equation*}
+        \tan(\SI{46}{\degree}) = 1/x \implies x = 0.966
+    \end{equation*}
+    Using the Lorentz transformation,
+    \begin{equation*}
+        \frac{0.966}{1.664} = \sqrt{1-(u/c)^2} \implies u = 0.814c
+    \end{equation*}
+
+    \item The astronaut's time is the proper time, since they are in the same location for the beginning and end measurements. Therefore
+    \begin{equation*}
+        \SI{400}{\year} = \SI{10}{\year} \frac{1}{\sqrt{1-(u/c)^2}} \implies \frac{1}{40} = \sqrt{1-(u/c)^2} \implies u = 0.9997c
+    \end{equation*}
+
+    \item Assume observer $O$ is at the origin when the red light flashes. The time it takes the blue flash to cover the distance and reach the observer is $\SI{3.26}{\km}/c = \SI{10.87}{\micro\s}$. This means the blue flash originated at $t=\SI{-3.24}{\micro\s}$. Then we can calculate the perceived distance for observer $O'$:
+    \begin{equation*}
+        \SI{3.26}{\kilo\meter} = d' \frac{1}{\sqrt{1-0.625^2}} \implies d'=\SI{2.54}{\kilo\meter}
+    \end{equation*}
+    Then the time for the flash of light to reach $O'$:
+    \begin{equation*}
+        t' = d'/c = \SI{8.46}{\micro\s}
+    \end{equation*}
+    Since the flash happened at $t=\SI{-3.24}{\micro\s}$, it is perceived at $t=\SI{5.23}{\micro\s}$.
+
+    \item \begin{enumerate}
+        \item To the space station director, the ships appear to be approaching each other at $1.2c$.
+        \item
+        \begin{equation*}
+            v = \frac{v'+u}{1+v'u/c^2} = \frac{1.2c}{1+0.36c^2/c^2} = 0.88c
+        \end{equation*}
+        \item Since radio waves are light, they always have an incident speed of $c$.
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

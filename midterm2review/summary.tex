@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+    \begin{itemize}
+        \item The DeBroglie wavelength is given by
+        \begin{equation*}
+            \lambda = \frac{h}{p}
+        \end{equation*}
+        \item A good estimate of whether wave mechanics are needed for a problem is whether the scale of the problem is the same order of magnitude or so as the DeBroglie wavelength.
+        \item Arguments for a particle model of light:
+        \begin{itemize}
+            \item Light can be quantized into photons
+            \item In the photoelectric effect, intensity alone is not enough to cause the effect. Individual photons must have enough energy
+        \end{itemize}
+        \item Arguments for a wave model of light:
+        \begin{itemize}
+            \item Light interferes with itself in the double slit experiment
+        \end{itemize}
+        \item The ultraviolet catastrophe occurs when light is not quantized. It predicts that the intensity of radiation at a particular frequency increases with the square of frequency, so a black body would give off infinite amounts of energy.
+        \item Wien's displacement law predicts that the most intense wavelength given off by a black body is
+        \begin{equation*}
+            \lambda_{\text{max}} = \frac{b}{T}
+        \end{equation*}
+        where $b$ is a constant.
+        \item Stefan's law (also known as the Stefan-Boltzmann law) states that the power radiated by a perfect blackbody at temperature $T$ is
+        \begin{equation*}
+            R_T = \sigma A T^4,
+        \end{equation*}
+        where $\sigma = \frac{2\pi^5k^4}{15c^2h^3}$ and $A$ is the area of the object.
+        \item The photoelectric effect experiment involves shining a light at a target surface, and measuring the maximum energy of the freed electrons by measuring the potential required to stop all of them. Under the wave model, any energy of light would be enough to free electrons, and increasing the intensity of the light increases the stopping potential required. In reality (and under the particle model), there is a minimum energy required to free electrons, and only increasing photon energy can increase the stopping potential.
+        \item The photoelectric effect equation is
+        \begin{equation*}
+            V_0 = \frac{h \nu}{e} - \frac{w_0}{e}
+        \end{equation*}
+        where $h$ is Planck's constant, $e$ is the charge of the electron, $w_0$ is the work function of the target, and $\nu$ is the frequency of incoming photons.
+
+        \item The Compton Scattering equation is
+        \begin{equation*}
+            \lambda' - \lambda = \frac{h}{m_e c} (1-\cos \theta)
+        \end{equation*}
+        where $\lambda$ is the initial wavelength, $\lambda'$ is the wavelength after scattering, and $\theta$ is the angle the scattered electron goes off at.
+
+        \item The Heisenberg uncertainty principle states that
+        \begin{equation*}
+            \Delta x \Delta p \geq \frac{\hbar}{2}
+        \end{equation*}
+        where $\Delta x$ is the uncertainty in position, $\Delta p$ is the uncertainty in momentum, and $\hbar$ is the reduced Planck constant.
+
+        \item The origin of the uncertainty principle comes from the wave interpretation of particles. If a particle is seen as a wave packet, either it is spread out, which gives a good estimate of the momentum but a poor estimate of position, or the wave packet is very short, giving a good estimate of position but not much information about momentum.
+
+        \item For a one-dimensional, time-independent wavefunction, the Schr\"odinger equation is
+        \begin{equation*}
+            -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + U(x)\psi(x) = E\psi(x)
+        \end{equation*}
+        with the addition that
+        \begin{equation*}
+            \int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1
+        \end{equation*}
+
+        \item How to normalize a wavefunction $\psi(x)$: Integrate $a = \int_{-\infty}^{\infty} |\psi|^2 dx$. Then the normalized verion of $\psi$ is $1/\sqrt{a} \psi$
+
+        \item To prove that a wavefunction is an allowed wavefunction of a given potential, see if it is a solution to the relevant Schr\"odinger equation, satisfying the boundary conditions and normalization condition.
+
+        \item A 1D wavefunction has units of $1/\sqrt{d}$, where $d$ is distance.
+
+        \item The energy levels of an infinite potential energy well are
+        \begin{equation*}
+            E = \frac{h^2}{8mL^2}(n_x^2 + n_y^2 + \dots)
+        \end{equation*}
+        For finite potential wells, a numerical solution must be found.
+
+        \item The probability that a particle will be found in the range $[a,b]$ is
+        \begin{equation*}
+            \int_{a}^{b} |\psi|^2 dx
+        \end{equation*}
+    \end{itemize}
+\end{document}

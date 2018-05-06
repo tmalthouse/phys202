@@ -1,0 +1,43 @@
+\documentclass{article}
+
+\usepackage[fleqn]{amsmath}
+
+\begin{document}
+    \begin{enumerate}
+        \item A simple function we can work with is the damped harmonic oscillator:
+        \begin{equation*}
+            m \ddot{x}(t) = -kx(t) - 2mb\dot{x}(t)
+        \end{equation*}
+        \item Using the Taylor expansion from the writeup above, we have that
+        \begin{equation*}
+            x_{j+1} = 2x_{j} - x_{j-1} + \Delta t^2 \frac{F_j}{m}
+        \end{equation*}
+        Then
+        \begin{equation*}
+            v_j = \frac{x_{j+1} - x_j}{\Delta t} = \frac{x_{j} - x_{j-1} + \Delta t^2 \frac{F_j}{m}}{\Delta t} =
+            \frac{x_j - x_{j-1}}{\Delta t} + \Delta t \frac{F_j}{m}
+        \end{equation*}
+
+        \item The angular frequency for an oscillator like this is
+        \begin{equation*}
+            \omega = \sqrt{k/m}
+        \end{equation*}
+        so the regular frequency is
+        \begin{equation*}
+            f = \frac{\sqrt{k/m}}{2\pi} \implies T = \frac{2\pi}{\sqrt{k/m}}
+        \end{equation*}
+
+        The potential energy of the mass at maximum extension is
+        \begin{equation*}
+            U = \frac{1}{2}k a^2
+        \end{equation*}
+        so the maximum speed is
+        \begin{equation*}
+            v_{\text{max}} = a\sqrt{k/m}
+        \end{equation*}
+        Therefore, for
+        \begin{equation*}
+            v_{\text{max}} = c \implies a = c\sqrt{m/k}
+        \end{equation*}
+    \end{enumerate}
+\end{document}

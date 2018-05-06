@@ -1,0 +1,104 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 10 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Since each atom of Helium has the same temperature (and therefore thermal energy) as each atom of Argon, and $K=(1/2)mv^2$, the Helium atoms must have a higher $v_{rms}$, since their mass is lower.
+
+        \item The argon has more thermal energy. On average, each atom has the same amount of energy, but there are twice as many atom of argon as there are of helium.
+    \end{enumerate}
+
+    \item The thermal energy of a monatomic gas is given by
+    \begin{equation*}
+        E_{th} = \frac{3}{2}Nk_BT
+    \end{equation*}
+    Here, the amount of helium, $N$, is given by
+    \begin{equation*}
+        N = \frac{PV}{k_B T}
+    \end{equation*}
+    Then the thermal energy is
+    \begin{equation*}
+        E_{th} = \frac{3}{2}\frac{PV}{k_B T}k_B T = \frac{3}{2} PV = \frac{3}{2} (\SI{1e5}{\pascal})(\SI{.001}{\meter^3}) = \SI{150}{\joule}
+    \end{equation*}
+
+    \item \begin{enumerate}
+        \item The Knight textbook walks through calculating the number of particles hitting the container's wall, giving the equation
+        \begin{equation*}
+            N_{coll} = \frac{NAv_x\Delta t}{2 V} = \frac{\left(\frac{PV}{k_B T}\right)Av_x\Delta t}{2 V} =
+            \frac{PA v_x \Delta t}{2 k_B T} = \frac{PA\Delta t}{2m\overline{v_x}}
+        \end{equation*}
+
+        \item The total kinetic energy of an ideal gas particle is given by
+        \begin{equation*}
+            v_{rms}^2 = \frac{3k_BT}{m} = \overline{v_x}^2 + \overline{v_y}^2 + \overline{v_z}^2 \implies \overline{v_z}^2 = \frac{3k_BT}{m} \implies \sqrt{\overline{v_x^2}} = \sqrt{\frac{k_BT}{m}}
+        \end{equation*}
+
+        \item Dividing what we had earlier by $\Delta t$ gives the rate at which the gas is escaping
+        \begin{equation*}
+            \frac{PA}{2m\overline{v_x}} = \frac{Nk_BTA}{2vm\sqrt{\overline{v_x^2}}} =
+            \frac{A}{2V}\frac{k_B T}{m\sqrt{\overline{v_x^2}}} N = \frac{A}{2V \sqrt{k_B T/m}} N
+        \end{equation*}
+        Therefore
+        \begin{equation*}
+            N(t) = N_0e^{-t (2V)/A \sqrt{kB T/m}}
+        \end{equation*}
+        where
+        \begin{equation*}
+            \tau = \frac{2V}{A\sqrt{k_BT/m}}
+        \end{equation*}
+
+        \item The characteristic time is
+        \begin{equation*}
+            \tau_{N_2} = \frac{2V}{A\sqrt{k_BT/m}} = \frac{2(\SI{.001}{\m^3})}{(\SI{1e-6}{\m^2})\sqrt{(\SI{1.380e-23}{\joule/\kelvin})(\SI{293}{\kelvin})/(\SI{4.65e-23}{\kg})}} = \SI{89.1}{\s}
+        \end{equation*}
+    \end{enumerate}
+
+    \item
+    \begin{equation*}
+        E_{th} = \frac{3}{2} N k_B T \implies \SI{1}{\joule} = \frac{3}{2}(\SI{1e20}{}) (\SI{1.380e-23}{\joule/\kelvin})T \implies
+        T = \SI{483.092}{\kelvin}
+    \end{equation*}
+
+\end{enumerate}
+
+
+\end{document}

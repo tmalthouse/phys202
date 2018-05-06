@@ -1,0 +1,125 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 20 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item From Krane, we know that the ground state energy of this system is
+        \begin{equation*}
+            E_0 = \frac{h^2}{8mL^2} = \frac{(\SI{1.626e-34}{\joule\s})^2}{8(\SI{9.109e-31}{\kg})(\SI{5}{\nano\meter})^2} = \SI{1.451e-22}{\joule}
+        \end{equation*}
+        Then the energy of the $n$-th energy state is $E_n = n^2E_0$, so
+        \begin{equation*}
+            E_4 = 16E_0 = \SI{2.322e-21}{\joule}
+        \end{equation*}
+        and the energy releassed in the phase transition is
+        \begin{equation*}
+            E_4-E_0 = \SI{2.177e-21}{\joule}
+        \end{equation*}
+        The wavelength of the released photon is then
+        \begin{equation*}
+            \lambda = \frac{hc}{E} = \SI{91.3}{\um}
+        \end{equation*}
+
+        \item If we approximate a nucleon as an infinite potential energy well, its base energy is given by
+        \begin{equation*}
+            E_0 = \frac{h^2}{8m L^2}
+        \end{equation*}
+        Decreasing the size of the well increases the base energy, and therefore the difference between energy levels. Therefore, decreasing the size of the potential well (relative to the scenario in part a.) will increase the difference between energy levels and therefore the energy of the photons released.
+    \end{enumerate}
+
+    \item First, looking at the case where $m=n$, this integral becomes
+    \begin{equation*}
+        \int_{x=-\infty}^{\infty} \psi_n^* \psi_n dx = \int_{x=-\infty}^{\infty} (|\psi_n|)^2 dx = 1
+    \end{equation*}
+    When $m\neq n$,
+    \begin{equation*}
+        \int_{x=-\infty}^{\infty} \psi_n^* \psi_m dx
+    \end{equation*}
+    However, the wavefunctions are complex exponentials, so this integral is equal to
+    \begin{equation*}
+        \int_{x=-\infty}^{\infty} (Ae^{-im \pi x/L})(Be^{in \pi x/L}) \implies \int_{x=-\infty} \psi_n^* \psi_m dx = -\int_{x=0}{\infty} \psi_n^* \psi_m dx \implies \int_{x=-\infty}^{\infty} \psi_n^* \psi_m dx = 0
+    \end{equation*}
+    Therefore,
+    \begin{equation*}
+        \int_{x=-\infty}^{\infty} \psi_n^* \psi_m dx = \delta_{nm}
+    \end{equation*}
+
+    \item \begin{enumerate}
+        \item From Krane, we know that
+        \begin{equation*}
+            k = \sqrt{\frac{2mE}{\hbar^2}} \text{ and } k' = \sqrt{\frac{2m(U_0-E)}{\hbar^2}} \implies k =
+            k'\sqrt{\frac{E}{U-E}} \implies E = \frac{k^2 U}{k^2 + k'^2}
+        \end{equation*}
+
+        \item When $U_0 \to \infty$, $k' \to k$, so the base energy is $E = \frac{\pi^2 \hbar^2}{2mL^2}$.
+
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The diagram is on the reverse side of the page.
+        \item The work done by the gas is
+        \begin{equation*}
+            W_{12} = Nk_BT_2\log \frac{V_2}{V_1}
+        \end{equation*}
+        \begin{equation*}
+            W_{34} = Nk_BT_1\log \frac{V_1}{V_2}
+        \end{equation*}
+        The change in heat over the isochores is
+        \begin{equation*}
+            Q_{23} = C_{V} (T_1-T_2), Q_{41} = C_{V} (T_2-T_1)
+        \end{equation*}
+        Then, since
+        \begin{equation*}
+            \eta = \frac{\Delta W}{\Delta Q}
+        \end{equation*}
+        the efficiency of the Stirling engine is
+        \begin{equation*}
+            \eta = \frac{Nk_BT_2\log \frac{V_2}{V_1} + Nk_BT_1\log \frac{V_1}{V_2}}{C_{V} (T_2-T_1) + C_{V} (T_1-T_2)}
+            = \frac{T_2-T_1}{T_2 + \frac{C_V (T_2-T_1)}{Nk\log V_2/V_1}}
+        \end{equation*}
+        \item This efficiency is lower than the Carnot efficiency, because no cycle is more efficient, and only the Carnot cycle is equally efficient.
+
+    \end{enumerate}
+
+\end{enumerate}
+\end{document}

@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 21 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item The wavefunction for the ground state of the simple harmonic oscillator is the Gaussian, normalized by the constant $A$:
+    \begin{equation*}
+      \psi(x) = Ae^{-(\sqrt{km}/2\hbar)x^2}
+    \end{equation*}
+    Since the Gaussian is symmetric, $x_\text{av}$ is 0. The average squared distance, $(x_{av})^2$, is given by the standard deviation of the Gaussian, as described below. Therefore,
+    \begin{equation*}
+        \sigma^2 = \frac{\sqrt{km}}{\hbar}
+    \end{equation*}
+
+    From section 4.4 of Krane, the positional uncertainty of a Gaussian distribution like this is
+    \begin{equation*}
+        \Delta x = \sigma_x = \sqrt{(x^2)_{av}-(x_{av})^2}
+    \end{equation*}
+
+    \item The simple harmonic oscillator system has a potential energy function of $U=\frac{1}{2} k x^2$, so the Schr\"odinger equation for this system is (from Krane)
+    \begin{equation*}
+      -\frac{\hbar^2}{2m} \frac{d^2 \psi}{dx^2}
+      + \frac{1}{2} k x^2 \psi
+      = E \psi
+    \end{equation*}
+    Then, since we know $\psi$ is of the form $\psi(x) = Axe^{-ax^2}$,
+    \begin{equation*}
+      \frac{d\psi}{dx} = Ae^{-ax^2} - 2Aax^2e^{-ax^2}
+      \text{ and }
+      \frac{d^2\psi}{dx^2} = 4a^2 A e^{-a x^2} x^3 - 6 a A e^{-a x^2} x =
+      Ae^{-a x^2} \left(4a^2x^3 - 6ax\right)
+    \end{equation*}
+    Then subbing this derivative into the Schr\"odinger equation gives
+    \begin{align*}
+      &-\frac{\hbar^2}{2m} Ae^{-a x^2} \left(4a^2x^3 - 6ax\right)
+      + \frac{1}{2} k x^2 A x e^{-a x^2}
+      = E A x e^{-a x^2} \\
+      \implies
+      &-\frac{\hbar^2}{2m} \left(4a^2x^3 - 6ax\right)
+      +\frac{1}{2} k x^3
+      =Ex \\
+      \implies
+      & \frac{1}{2}kx^2 + \frac{3 a \hbar^2}{m} - \frac{2 a^2 x^2 \hbar^2}{m} = E
+      \\
+      \intertext{The only way for an equation like this to be true is for the coefficients of $x^2$ to sum to 0, and for the constant coefficients to do the same. This gives that} \\
+      &\frac{1}{2} k = \frac{2 a^2 \hbar^2}{m} \text{ and } E = \frac{3 a \hbar^2}{m} \\
+      & a = \frac{\sqrt{km}}{2\hbar} \text{ and } E = \frac{3}{2} \hbar \omega_0
+    \end{align*}
+
+    \item Since the two points are at the same temperature, and change in entropy is path-independent, this transformation is equivalent to an isotherm. We know that the change in entropy along this isotherm is
+    \begin{equation*}
+      \Delta S = N k_B \log \frac{V_B}{V_A}
+    \end{equation*}
+  \end{enumerate}
+\end{document}

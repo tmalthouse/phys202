@@ -1,0 +1,74 @@
+\documentclass[10pt]{article}
+
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\vec}{\mathbf}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+  \begin{tabular}{l}
+    Box Num. 33 \\
+    Problem Set 29 \\
+    \today
+  \end{tabular}
+
+  \begin{enumerate}
+    \item \begin{enumerate}
+        \item The six possible sets of quantum numbers $(n,l,m_l,m_s)$ are $(2,1,1,1/2)$, $(2,1,1,-1/2)$, $(2,1,0,1/2)$, $(2,1,0,-1/2)$, $(2,1,-1,1/2)$, and $(2,1,-1,-1/2)$.
+        \item There are 21 possibilities, since there are 6 states for the first electron and the same six for the second, but they are indistinguishable.
+        \item When considering the Pauli exclusion principle, the two electrons cannot have the same state, so we can use the binomial theorem to get the number of unique ways to draw 2 from 6, which is 15.
+        \item The Pauli exclusion principle does not affect the quantum numbers for the electrons in this situation, becuase there is no way two electrons in the $2p$ and $3p$ orbitals can have the same quantum numbers. There are 36 possible sets of quantum numbers in this situation.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item Since the charge density represents a total of $Z-1$ electrons, we want
+        \begin{align*}
+            e(Z-1) &= \int_{\R^3} \rho(r) dr = \int_{r=0}^{\infty} \int_{\theta = 0}^{2\pi} \int_{\phi=0}^{\pi} \rho_0 e^{-r/R}\\
+            &= 2\pi^2 R \rho_0 \implies \rho_0 = \frac{e(Z-1)}{2\pi^2 R}
+        \end{align*}
+
+        \item Because the charge distribution only depends on radius, the electric field will be the same at any point on a given sphere centered at the nucleus. Therefore,
+        \begin{align*}
+            &\frac{Q}{\epsilon_0} = \Phi_E = E A \\ &\implies
+            \frac{\int_{\hat{r}=0}^{r} \int_{\theta = 0}^{2\pi} \int_{\phi=0}^{\pi} \rho_0 e^{-\hat{r}/R}}{\epsilon_0} =
+            4\pi r^2 E \\
+            &\implies
+            \frac{2\pi^2 R \left(1 - e^{-r/R}\right) \rho_0}{\epsilon_0} = 4\pi r^2 E \\
+            & \implies
+            E = \frac{4 \pi r^2 e(Z-1)(1-e^{-r/R})}{\epsilon_0}
+        \end{align*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The four lowest allowed energies are $2E_0$, $5E_0$, $8E_0$, and $10E_0$. These energies can accommodate 2, 4, 2, and 4 particles, respectively.
+        \item and (c) on back.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The probability density is $|Axe^{-ax}|^2$, and we want to solve for $A$ s.t. integrating from $-\infty$ to $\infty$ gives 1.
+        \begin{equation*}
+            \int_{0}^{\infty} \left|A x e^{-a x}\right|^2 dx = \frac{A^2}{4a^3} \implies
+            A = 2a^{3/2}
+        \end{equation*}
+
+        \item We know that $\frac{\partial}{\partial x} x e^{-ax} = (1-ax)e^{-ax}$. This function has a minimum when $x = 1/a$, so that is the most probably position of the particle.
+
+        \item
+        \begin{align*}
+            \langle x \rangle = \int_{-\infty}^{\infty} \psi^* x \psi dx &= \int_0^{\infty} Axe^{-ax}xAxe^{-ax}dx =
+            \int_0^\infty A^2 x^3 e^{-2ax} = \frac{6A^2}{16a^4} = \frac{3}{2a}
+        \end{align*}
+        \item
+        \begin{align*}
+            \langle p \rangle = \int_-\infty^\infty \psi^* \hat{p} \psi dx =
+            \int_0^\infty A^2xe^{-ax}(-i\hbar (1-ax) e^{-ax}) = 0
+        \end{align*}
+        This makes sense, since the expectation value for position is not changing over time.
+    \end{enumerate}
+  \end{enumerate}
+\end{document}

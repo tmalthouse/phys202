@@ -1,0 +1,110 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 6 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item Since the rest mass is $\SI{4}{\giga\electronvolt/\clight^2}$, as shown in part b, if the momentum is $\SI{4}{\giga\electronvolt/\clight}$, then
+        \begin{equation*}
+            E^2 = p^2 + m^2 = \sqrt{32} \approx \SI{5.66}{\giga\electronvolt}
+        \end{equation*}
+
+        \item The rest mass is given by
+        \begin{equation*}
+            m^2 = 5^2 - 4^2 = 9 \implies m/c^2 = \SI{4}{\giga\electronvolt/\clight^2}
+        \end{equation*}
+
+        \item The difference in momenta is $\SI{1}{\giga\electronvolt/\clight}$. Then
+        \begin{equation*}
+            p = \gamma m_0 v = \frac{m_0v}{\sqrt{1-(v/c)^2}} \implies v = \frac{c p}{\sqrt{m^2 + p^2}} = \frac{c}{\sqrt{17}}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The total energy of the electron after the collision is
+        \begin{equation*}
+            E_e^2 = (m_e/c^2)^2 + (p_e/c)^2
+        \end{equation*}
+        However, the momentum must have come from the charged particle, so
+        \begin{equation*}
+            E_i-E_f = p_e/c
+        \end{equation*}
+    \end{enumerate}
+    I'm sorry, I can't figure out how to go on from here. The momentum and rest mass equations don't make sense for a massless particle, so I really don't know how to use the momentum of the electron to get the trajectory of the photon.
+
+    \item \begin{enumerate}
+        \item The direction of particle 3 is given by
+        \begin{equation*}
+            \theta = \arctan\left(\frac{3c/5}{4c/5}\right) = \arctan(3/4) \approx \SI{36.87}{\degree}
+        \end{equation*}
+        The momenta of the first two particles are:
+        \begin{equation*}
+            p_1 = \gamma m_0 v_1 = \frac{m_0 (4c/5)}{\sqrt{1-(4/5)^2}} = \frac{4 c m_0}{3}
+        \end{equation*}
+        \begin{equation*}
+            p_2 = \gamma m_0 v_2 = \frac{m_0 (3c/5)}{\sqrt{1-(3/5)^2}} = \frac{3 c m_0}{4}
+        \end{equation*}
+        Then the 3rd particle's momentum is
+        \begin{equation*}
+            p_3^ 2= p_1^2 + p_2^2 \implies p_3 = 1.53 c m_0
+        \end{equation*}
+        Then
+        \begin{equation}
+            1.53cm_0 = \frac{m_0 v_3}{\sqrt{1-(v/c)^2}} \implies v_3 \approx 0.837c
+        \end{equation}
+
+        \item Each particle's energy is given by
+        \begin{equation*}
+            E_n = \sqrt{(m_0c^2)^2 + \left(\frac{m_0 v_n}{\sqrt{1-(v_n/c)^2}}\right)^2}
+        \end{equation*}
+        Therefore, letting $M_0 = 1$,
+        \begin{equation*}
+            c^2 =
+            \sqrt{(m_0c^2)^2 + \left(\frac{m_0 v_1}{\sqrt{1-(v_1/c)^2}}\right)^2} +
+            \sqrt{(m_0c^2)^2 + \left(\frac{m_0 v_2}{\sqrt{1-(v_2/c)^2}}\right)^2} +
+            \sqrt{(m_0c^2)^2 + \left(\frac{m_0 v_3}{\sqrt{1-(v_3/c)^2}}\right)^2}
+        \end{equation*}
+        $m_0 = 0.211M_0$, so $M_0/m_0 = 4.73$.
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

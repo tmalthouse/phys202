@@ -1,0 +1,139 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 13 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item As showed last semester, the differential equation for this situation is
+        \begin{equation*}
+            \ddot{x}(t) = \frac{k}{m}x(t)
+        \end{equation*}
+        with solution
+        \begin{equation*}
+            x(t) = x_i\cos(\omega t) = x_i \cos\left(\sqrt{k/m} t\right)
+        \end{equation*}
+        Then, taking the derivative, the velocity is
+        \begin{equation*}
+            v_x(t) = -\omega x_i \sin(\omega t)
+        \end{equation*}
+
+        \item The probability that the mass can be found at a point $x$ is inversely proportional to the velocity of the mass at that point, since a higher velocity means the mass spends less time at that point. The velocity of the mass at a given point can be found through energy, as follows:
+        \begin{equation*}
+            E_{\text{tot}} = \frac{1}{2}kx_i^2
+        \end{equation*}
+        \begin{equation*}
+            U(x) = \frac{1}{2}kx^2 \implies K(x) = E_\text{tot} - U(x) = \frac{1}{2}kx_i^2 - \frac{1}{2}kx^2 = \frac{1}{2}k(x_i^2-x^2)
+        \end{equation*}
+        Then, solving for $v(x)$,
+        \begin{equation*}
+            \frac{1}{2}m v(x)^2 = \frac{1}{2}k(x_i^2-x^2) \implies v(x) = \sqrt{\frac{k}{m}(x_i^2-x^2)}
+        \end{equation*}
+        Since the mass cannot be beyond the point $x_i$ (there is not enough energy for it to reach that point),
+        \begin{equation*}
+            P(x) dx = \begin{cases}
+                \frac{A}{\sqrt{x_i^2-x^2}}dx & -x_i\leq x \leq x_i \\
+                0 & \text{otherwise}
+        \end{cases}
+        \end{equation*}
+
+        \item A probability distribution function must be normalized, so we need to find $A$ s.t.
+        \begin{equation*}
+            \int_{-\infty}^\infty \frac{A}{\sqrt{x_i^2-x^2}}dx = \int_{-x_i}^{x_i} \frac{A}{\sqrt{x_i^2-x^2}}dx = 1
+        \end{equation*}
+        Evaluating this integral gives that
+        \begin{equation*}
+            \int_{-x_i}^{x_i} \frac{A}{\sqrt{x_i^2-x^2}}dx = \left. -A \arctan \left(\frac{x \sqrt{x_i^2-x^2}}{x^2-x_i^2}\right)\right|_{x=-x_i}^{x_i} = A \pi \implies A = \frac{1}{\pi}
+        \end{equation*}
+
+        \item Since the PDF is symmetric and centered at 0, the block's position has an expected value of $x=0$.
+        \begin{equation*}
+            \langle x \rangle = \int_{\infty}^{\infty} x P(x) dx = 0
+        \end{equation*}
+
+        \item The probability density function for the displacement is given by
+        \begin{equation*}
+            P_{\text{disp}}(x) dx = \begin{cases}
+                \frac{2/\pi}{\sqrt{x_i^2-x^2}}dx & 0\leq x\leq x_i \\
+                0 & \text{otherwise}
+        \end{cases}
+        \end{equation*}
+        Then the expected value of the displacement is
+        \begin{equation*}
+            \langle |x| \rangle = \int_0^{x_i} x \frac{2/\pi}{\sqrt{x_i^2-x^2}}dx = \left. -\frac{2 \sqrt{x_i^2-x^2}}{\pi } \right|_{x=0}^{x_i} = \frac{2x_i}{\pi}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item Deriving the speed distribution for the 3d case is similar to deriving it for the 2d case. Start by imagining a 3D plot of the velocity components. For every gas particle, $v_x \approx v_y \approx v_z$. Then imagine a cylinder $C$ in that space. Because $g(v_x)dv_x \propto dv_x$ (and similar for the other two directions), switching to cylindrical coordinates gives that
+        \begin{equation*}
+            g(v)dv = \int_C v dv = \int_{\theta = 0}^{2\pi} \int_{z=0}^{v} v \,dv\, dz\, d\theta = 2 \pi v^2 dv
+        \end{equation*}
+        Then, as shown in class, the speed distribution function must be
+        \begin{equation*}
+            P(v) dv = \left(\frac{m}{2\pi k_B T}\right)^{\frac{3}{2}} 2 \pi v^2 e^{-\frac{mv^2}{2k_BT}} dv
+        \end{equation*}
+
+        \item
+        The average speed of an ideal gas particle is
+        \begin{equation*}
+            \langle v \rangle = \int_{-\infty}^{\infty} v P(v) dv =
+            \int_{0}^{\infty} v \left(\frac{m}{2\pi k_B T}\right)^{\frac{3}{2}} 2 \pi v^2 e^{-\frac{mv^2}{2k_BT}} dv =
+            \frac{\sqrt{\frac{2}{\pi }} T^2 k_B^2 \left(\frac{m}{T k_B}\right){}^{3/2}}{m^2}
+        \end{equation*}
+
+        \item The distribution function of $v^2$ needs to be multiplied by the constant
+        \begin{equation*}
+            \frac{8 \sqrt{\pi } T^3 k_B^3 \left(\frac{m}{T k_B}\right){}^{5/2}}{3 m^3}
+        \end{equation*}
+        to be normalized. Then
+        \begin{equation*}
+            \langle v^2 \rangle = \int_{-\infty}^{\infty} \frac{8 \sqrt{\pi } T^3 k_B^3 \left(\frac{m}{T k_B}\right){}^{5/2}}{3 m^3} \left(\frac{\sqrt{\frac{2}{\pi }} T^2 k_B^2 \left(\frac{m}{T k_B}\right){}^{3/2}}{m^2}\right)^2 =
+            \frac{4 T^3 k_B^3 \left(\frac{m}{T k_B}\right){}^{5/2}}{3 \sqrt{\pi } m^3}
+        \end{equation*}
+        and
+        \begin{equation*}
+            \sqrt{\langle v^2 \rangle} = \frac{2}{\sqrt{3} \sqrt[4]{\pi } \sqrt[4]{\frac{m}{T k_B}}}
+        \end{equation*}
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

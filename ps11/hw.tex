@@ -1,0 +1,156 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 11 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item The PV diagram describing the two processes looks like
+
+        \begin{tikzpicture}
+            \begin{axis}[xmin=0,ymin=0,xmax=25,ymax=25, domain=0:25, xlabel={$V$}, ylabel={$P$}]
+               \addplot[mark=none, color=blue] coordinates {(5,20) (20,20)} node [pos=0.15, pin={-5:$A$},inner sep=0pt] {};
+               \addplot[mark=none] coordinates {(20,5) (20,20)};
+               \addplot[mark=none, smooth, domain=5:20] {100 / x} node [pos=0.15, pin={-5:$B$},inner sep=0pt] {};
+            \end{axis}
+        \end{tikzpicture}
+
+        This diagram shows that $W_A$ is larger than $W_B$, since the area under the curve of $A$ is larger than that under $B$. Since $\Delta E_{th,A} = \Delta E_{th,B}$ (because the two paths have the same start and endpoints), $Q_A < Q_B$.
+
+        \item For an isobaric process, like process A,
+        \begin{equation*}
+            W_1 = P\Delta V = P(V_2-V_1)
+        \end{equation*}
+        To calculate the change in heat, we need the initial and final temperatures.
+        \begin{equation*}
+            T_1 = \frac{PV_1}{nR}\qquad T_2 = \frac{PV_2}{nR}
+        \end{equation*}
+        Then
+        \begin{equation*}
+            \Delta T = (V_2-V_1)\frac{P}{nR} \implies Q = nC_P \Delta T = (V_2-V_1)\frac{PC_P}{R}
+        \end{equation*}
+        The total change in energy is the sum of the work and heat, so
+        \begin{equation*}
+            \Delta E_{th} = P(V_2-V_1) + (V_2-V_1)\frac{PC_P}{R} = (V_2-V_1) \left(\frac{PC_P}{R} + P\right)
+        \end{equation*}
+
+        \item First, we need to calculate the total work done. The total work is the sum of the integrals of the two curves. However, the isochoric temperature increase does not require any work to be done. Therefore,
+        \begin{equation*}
+            W_2 = \int_{V_1}^{V_2} \frac{k_B PV_1} {R V} dV = \left. \frac{k_b P V_1}{R} \log(V)\right|_{V=V_1}^{V_2} =
+            \frac{k_b P V_1}{R} \log(V_2/V_1)
+        \end{equation*}
+        For the heat calculation, there is no heat added during the isothermal process, by definition. The heat added during the isobaric process is
+        \begin{equation*}
+            \Delta T = (T_2 - T_1) \implies Q = nCV_2 \Delta T = (V_2-V_1) \frac{PnC_{V_1}}{R}
+        \end{equation*}
+        And the total energy change is
+        \begin{equation*}
+            \Delta E_{th,2} = \Delta Q + \Delta W = (V_2-V_1) \frac{PnC_{V_1}}{R}  + \frac{k_b P V_1}{R} \log(V_2/V_1)
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The energy of the monatomic gas is
+        \begin{equation*}
+            E_{1,th,i} = \frac{3}{2}n_1RT_{1,i}
+        \end{equation*}
+        and the energy of the diatomic gas is
+        \begin{equation*}
+            E_{2,th,i} = \frac{5}{2}n_2RT_{2,i}
+        \end{equation*}
+        and the total energy is
+        \begin{equation*}
+            E_{th} = \frac{R}{2}(3n_1T_{1,i} + 5n_2T_{2,i})
+        \end{equation*}
+        The energy is constant, so at equilibrium,
+        \begin{equation*}
+            E_{th} = \frac{R}{2}(3n_1T_f + 5n_2T_f) = \frac{R}{2}(3n_1T_{1,i} + 5n_2T_{2,i}) \implies T_f =
+            \frac{3 n_1 T_{1,i} + 5 n_2 T_{2,i}}{3n_1 + 5n_2}
+        \end{equation*}
+        The final energies are therefore
+        \begin{equation*}
+            E_{1,f} = \frac{3}{2} n_1 R \frac{3 n_1 T_{1,i} + 5 n_2 T_{2,i}}{3n_1 + 5n_2} = \frac{3 n_1}{3n_1 + 5n_2} (E_{1,i} + E_{2,i})
+        \end{equation*}
+        \begin{equation*}
+            E_{2,f} = \frac{5}{2} n_1 R \frac{3 n_1 T_{1,i} + 5 n_2 T_{2,i}}{3n_1 + 5n_2} = \frac{5 n_2}{3n_1 + 5n_2} (E_{1,i} + E_{2,i})
+        \end{equation*}
+
+        \item I already showed this above.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The thermal energy of the water is
+        \begin{equation*}
+            E_{th,w} = m c T = (\SI{20}{\gram})(\SI{4.183}{\joule/\g\celsius})(\SI{20}{\celsius}) = \SI{1673.2}{\joule}
+        \end{equation*}
+        and the thermal energy of the gas is
+        \begin{equation*}
+            E_{th,g} = \frac{3}{2}nRT = \frac{3}{2}PV = \frac{3}{2} (\SI{1.013e6}{\pascal})(\SI{0.004}{\m^3}) = \SI{6078}{\joule}
+        \end{equation*}
+        Then, at equilibrium,
+        \begin{equation*}
+            E_{th,w} + E_{th,w} = E_{th} = m c T + \frac{3}{2}nRT
+        \end{equation*}
+        \begin{equation*}
+            \SI{7751.2}{\joule} = (\SI{83.66}{\joule/\kelvin})T + \frac{3}{2} (\SI{3.3256}{\joule/\kelvin}) \implies T = \SI{87.43}{\celsius}
+        \end{equation*}
+        Then the gas pressure is
+        \begin{equation*}
+            P = \frac{nRT}{V} = \frac{(\SI{0.4}{\mol})(\SI{8.143}{\joule/\mol\kelvin})(\SI{360}{\kelvin})}{\SI{0.004}{\m^3}} =
+            \SI{2.931e5}{\pascal} = 2.89 \text{ atm}
+        \end{equation*}
+    \end{enumerate}
+
+    \item Let the total length of the cylinder be $\ell$. The initial pressure of the gas is given by the relation $PA = kx_i$, since the pressure force must be balanced by the spring force. Then the initial thermal energy is given by
+    \begin{equation*}
+        E_{th,i} = \frac{3}{2}nRT = \frac{3}{2}PV = \frac{3}{2}k(\ell-L_i)AL_i
+    \end{equation*}
+    When the cylinder is extended to $L_f$,
+    \begin{equation*}
+        E_{th,f} = \frac{3}{2}k(\ell-L_f)AL_f
+    \end{equation*}
+    so
+    \begin{equation*}
+        \Delta E_th = E_f - E_i = \frac{3}{2}k(\ell-L_i)AL_i - \frac{3}{2}k(\ell-L_f)AL_f = \frac{3}{2}kA((\ell-L_i)L_i - (\ell-L_f)L_f)
+    \end{equation*}
+\end{enumerate}
+
+
+\end{document}

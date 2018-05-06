@@ -1,0 +1,114 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 1 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item In this problem, Earth-based time is the proper time. The time dilation is the given by
+        \begin{equation*}
+            \Delta t = \Delta t_0 \frac{1}{\sqrt{1-(u/c)^2}} = (\SI{86400}{\s})\frac{1}{\sqrt{1-(\SI{1e5}{\m/\s}/\SI{3e8}{\m/\s})^2}} = \SI{86400.005}{\s}
+        \end{equation*}
+
+        \item In this problem, the time in the car is the proper time. Then
+        \begin{equation*}
+            \SI{40}{\minute} = \Delta t_0 \frac{1}{\sqrt{1-(0.7)^2}} = 1.4\Delta t_0 \implies \Delta t_0 = \SI{28.57}{\min}
+        \end{equation*}
+
+        \item In this problem, the spacecraft's time is the proper time.
+        \begin{equation*}
+            \SI{2}{\day} = \SI{1}{\day}\frac{1}{\sqrt{1-(u/c)^2}} \implies \sqrt{1-(u/c)^2} = \frac{1}{2} \implies 1-(u/c)^2 = \frac{1}{4} \implies \frac{u}{c} = \sqrt{\frac{3}{4}} \implies u = \frac{\sqrt{3}c}{2}
+            \approx 0.87c
+        \end{equation*}
+
+        \item The proper time is the time measured by the people on the platform, since they are in the same place at both the start and end. The elapsed time measured on the train ($\Delta t_t$) is therefore
+        \begin{equation*}
+            \Delta t_t = \Delta t \frac{1}{\sqrt{1-(u/c)^2}}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item
+        \begin{equation*}
+            \gamma = \frac{1}{\sqrt{1-(u/c)^2}} = \frac{1}{\sqrt{1-0.8^2}} = \frac{5}{3}
+        \end{equation*}
+
+        \item
+        \begin{equation*}
+            \Delta t = \Delta t_0 \gamma = (\SI{1.8e-8}{\s})\frac{5}{3} = \SI{3e-8}{\s} = \SI{30}{\nano\second}
+        \end{equation*}
+
+        \item The time it takes to travel this distance, as observed by us, is
+        \begin{equation*}
+            \frac{\SI{36}{\m}}{\SI{3e8}{\m/\s}} = \SI{1.2e-7}{\s} = \SI{120}{\nano\second}
+        \end{equation*}
+        Therefore, the pions go through 4 half-lives, and the remaining number is
+        \begin{equation*}
+            32000 \times 2^{-4} = 2000
+        \end{equation*}
+
+        \item If time dilation were ignored, the proper half-life would apply, and the number would be
+        \begin{equation}
+            32000 \times 2^{-120/18} = 32000\times2^{-6.67} = 314.25
+        \end{equation}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item First, we will prove the right equality:
+        \begin{align*}
+            \tau (1-\beta) = \gamma \tau_0 (1-\beta) = \tau_0 \frac{1-\beta}{\sqrt{1-\beta^2}} = \sqrt{\frac{1-\beta}{1+\beta}}
+        \end{align*}
+        Then the left:
+        \begin{equation*}
+            \tau(1-\beta) = \tau - \frac{\tau u}{c}
+        \end{equation*}
+        Since $\tau u$ is the distance the clock travels in time $\tau$ (according to the observer), $\frac{\tau u}{c}$ is the time it takes light to travel that distance. Since the light from point $A$ must travel this extra distance, the image of the clock at point $A$ is delayed by $\frac{\tau u}{c}$ compared to the image from point $B$. Therefore, $\tau_{\text{see}}$ is
+        \begin{equation*}
+            \tau_{\text{see}} = \tau - \frac{\tau u}{c} = \tau(1-\beta)
+        \end{equation*}
+
+        \item Choose two more observation points, $C$ and $D$, past the observed, with observed time $\tau$ between the two. Let the delay between the clock being at $C$ and the observer seeing this be given by $t$. The distance between $C$ and $D$ (in the observer's frame) is given by $\tau u$, and the time it takes light to cross this distance is $\frac{\tau u}{c} = \tau \beta$. Therefore, since it takes light an extra $\tau \beta$ to travel from $D$ (compared to $C$), the new perceived time interval is
+        \begin{equation*}
+            \tau_{\text{see}} = \tau(1+\beta)
+        \end{equation*}
+    \end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\end{document}

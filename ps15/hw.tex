@@ -1,0 +1,95 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 15 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Planck's radiation intensity equation gives that
+        \begin{align*}
+            I(\lambda) &= \frac{2\pi h c^2}{\lambda^5}\frac{1}{e^{hc/\lambda k T} - 1} \\
+            &\approx
+             \frac{2\pi h c^2}{\lambda^5}\frac{1}{(1 + hc/\lambda k T) - 1} \\
+            &= \frac{2\pi h c^2}{\lambda^5}\frac{1}{hc/\lambda k T} \\
+            &= \frac{2\pi h c^2\lambda k T}{\lambda^5 hc} \\
+             &= \frac{2\pi c k T}{\lambda^4}
+        \end{align*}
+        which is the equation from classical wave theory. Therefore, Planck's theory is consistent with the observed results at small frequencies.
+
+        \item As the frequency increases ($\lambda\to0$), in the classical model, the intensity approaches infinity, since
+        \begin{equation*}
+            \lim_{\lambda \to 0} \frac{2\pi c k T}{\lambda^4} = \lim_{\lambda \to 0} \frac{1}{\lambda^4} = \infty
+        \end{equation*}
+
+        However, for Planck's theory, as $\lambda \to 0$, the exponential term $e^{hc/\lambda k T}-1$ grows to infinity (exponentially, surprisingly) while the polynomial term $\lambda^4$ goes to 0. Since exponential growth always dominates polynomial growth,
+        \begin{equation*}
+            \lim_{\lambda\to 0} \frac{2\pi h c^2}{\lambda^5}\frac{1}{e^{hc/\lambda k T} - 1} = \lim_{\lambda\to 0} \frac{1}{\infty} = 0
+        \end{equation*}
+
+    \end{enumerate}
+
+    \item The derivative of $I(\lambda)$ is
+    \begin{align*}
+        \frac{dI(\lambda)}{d\lambda} &= \frac{2\pi h c^2}{\lambda^5}\frac{1}{e^{hc/\lambda k T} - 1} \frac{d}{d\lambda} \\
+        &= \frac{2\pi h c^2}{\lambda^5}\left(\frac{1}{e^{hc/\lambda k T} - 1}\frac{d}{d\lambda}\right) +
+        \frac{1}{e^{hc/\lambda k T} - 1} \left(\frac{2\pi h c^2}{\lambda^5}\frac{d}{d\lambda}\right) \\
+        &= \frac{2 \pi  c^3 h^2 e^{-\frac{c h}{k \lambda  T}}}{k \lambda ^7 T}-\frac{10 \pi  c^2 h e^{-\frac{c h}{k \lambda  T}}}{\lambda ^6}
+    \end{align*}
+    which gives a maximum at
+    \begin{equation*}
+        \lambda = \frac{c h}{5 k T} \implies \lambda T = \frac{c h}{5 k} = \SI{2.72e-3}{\m\kelvin}
+    \end{equation*}
+    which is very close to the expected value of $\SI{2.89e-3}{\m\kelvin}$.
+
+    \item Integrating equation  3.41 gives
+    \begin{align*}
+        \int_0^\infty I(\lambda) &= \int \frac{2\pi h c^2}{\lambda^5} \frac{1}{e^{hc/\lambda k T} - 1} d \lambda \\
+        &= \frac{12 \pi  k^4 T^4}{c^2 h^3}
+    \end{align*}
+
+    \item From problem 2, we know the most intense wavelength is at
+    \begin{equation*}
+        \lambda = \frac{\SI{2.89e-3}{\m\kelvin}}{\SI{6000}{\kelvin}} = \SI{4.817e-7}{\meter} = \SI{482}{\nano\meter}
+    \end{equation*}
+    This is in the visible light range, near the color green. According to \footnote{wikipedia.org/wiki/Color\_vision}, the human eye is most sensitive at wavelengths near $\SI{555}{\nano\meter}$, so this maximum intensity is slightly below the region of maximum sensitivity (our eyes are still very good at recognizing it, though.)
+\end{enumerate}
+
+
+\end{document}

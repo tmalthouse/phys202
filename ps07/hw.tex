@@ -1,0 +1,80 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 6 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item[1.] is attached.
+    \item[2.] \begin{enumerate}
+        \item A spaceship flies away from the Earth, but immediately begins decelerating, and once its velocity relative to the earth is 0, begins accelerating towards the Earth until reaching it, so that its arrival speed is the same as its departure speed.
+
+        \item A light pulse sends photons traveling in opposite directions.
+
+        \item Two spaceships are stationary relative to each other, but begin traveling towards each other, each at a speed of $0.5c$ relative to their origins.
+    \end{enumerate}
+
+    \item[3.] With an initial mercury volume of $0.3mL$ and a temperature increase of $\SI{10}{\degree}C$, the final volume is
+    \begin{equation*}
+        V_f = 0.3 \left(\frac{5501}{5500}\right)^{10} = \SI{0.300546}{\milli\liter}
+    \end{equation*}
+    Therefore, the $\SI{1}{\cm}$ tall cylinder must have a volume of $\SI{0.000546}{\ml}$.
+    \begin{equation*}
+        V = h \pi r^2 \implies \SI{0.000546}{\ml} = \pi r^2 \implies r = \SI{0.0132}{\cm}
+    \end{equation*}
+    Therefore the cylinder's inner diameter is $\SI{0.0264}{\cm}$.
+
+    \item[4.] \begin{enumerate}
+        \item Temperature is a property of a system, describing the average kinetic energy of particles in the system. It can be changed by interactions with the environment, but an interaction itself does not have a temperature.
+        \item Heat is a property of an interaction between a system and its environment, describing the amount of energy that is transferred between the two. A system itself cannot have heat---only the potential to transfer a lot of energy.
+        \item Thermal energy is a property of both a system and an interaction between the system and its environment. A system has a certain amount of thermal energy---measured by its temperature---and that amount can be increased or decreased through heat---adding or taking away thermal energy through an interaction.
+    \end{enumerate}
+
+    \item[5.] The specific heat of water is $\SI{4.184}{\joule/\kg\kelvin}$, for copper it is $\SI{0.386}{\joule/\kg\kelvin}$, and for aluminum it is $\SI{0.900}{\joule/\kg\kelvin}$. If there is $\SI{1}{\gram}$ of water, there is then
+    \begin{equation*}
+        \frac{\SI{4.184}{\joule/\kg\kelvin}}{\SI{0.386}{\joule/\kg\kelvin}} = \SI{10.566}{\gram} \text{ of copper and}
+    \end{equation*}
+    \begin{equation*}
+        \frac{\SI{4.184}{\joule/\kg\kelvin}}{\SI{0.900}{\joule/\kg\kelvin}} = \SI{4.649}{\gram} \text{ of aluminum.}
+    \end{equation*}
+
+
+\end{enumerate}
+
+
+\end{document}

@@ -1,0 +1,123 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 12 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item You would find a beaker of slightly cooler water.
+        \item You would never see an outcome like the large ice cube in a cloud of steam because its multiplicity is incredibly low compared to the multiplicity of the beaker of cool water.
+    \end{enumerate}
+
+    \item The equation relating entropy and energy inputed is
+    \begin{equation*}
+        dS = \frac{dQ}{T}
+    \end{equation*}
+    However, $dS = k_B \log(3)$. Therefore, the change in heat (the heat input) is
+    \begin{equation*}
+        dQ = Tk_B\log(3)
+    \end{equation*}
+
+    \item \begin{enumerate}
+        \item There are $52!$ ways to arrange a deck of cards.
+        \item At first, you have a multiplicity of 1, since there is only one way to arrange the cards in the way they initally were. However, after repeatedly shuffling the cards, the deck has a multiplicity of $52!$, since it could be in any possible state. Therefore, the entropy is
+        \begin{equation*}
+            S = k_B \log(52!) \approx 156.36k_B = \SI{2.16e-21}{\joule/\kelvin}
+        \end{equation*}
+
+        \item Multiplying the mass of the card by the specific heat and temperature increase gives that the heat added is $\SI{2.41}{\joule}$. Averaging the temperature to be $\SI{20.5}{\celsius} = \SI{293.65}{\kelvin}$, the change in entropy is
+        \begin{equation*}
+            dS = \frac{dQ}T = \frac{\SI{2.41}{\joule}}{\SI{293.65}{\kelvin}} = \SI{0.00821}{\joule/\kelvin}
+        \end{equation*}
+        This increase is far, far larger than the change from shuffling the cards.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item In an isothermal process, $P = \frac{Nk_BT}{V}$, where $Nk_BT$ is constant. Therefore, the heat involved in this process is
+        \begin{equation*}
+            dQ = \int_{V_i}^{V_f} \frac{Nk_BT}{V} dV = Nk_BT\log(V_f/V_i) \implies dS = \frac{dQ}{T} = Nk_B \log(V_f/V_i)
+        \end{equation*}
+        \item In the adiabatic compression $(i\to m)$, $dQ$ is by definition 0, so $dS=0$ for that segment. We just showed that the entropy change in an isothermal process is
+        \begin{equation*}
+            dS_{therm} = Nk_B \log(V_f/V_m)
+        \end{equation*}
+        where $V_m$ is the solution to
+        \begin{equation*}
+            \frac{P_iV_i}{V_m} = \frac{P_fV_f^{(C_P/C_V)}}{V_m^{(C_P/C_V)}} \implies V_m =
+            \frac{P_f V_f^{(C_P/C_V)}}{P_i V_i}^{\frac{1}{(C_P/C_V)-1}}
+        \end{equation*}
+        so
+        \begin{equation*}
+            dS_{therm} = Nk_B \log\left(
+                V_f \left(
+                    \frac{P_f V_f^{(C_P/C_V)}}{P_iV_i}
+                \right)^{-\frac{C_V}{C_P-C_V}}
+            \right)
+        \end{equation*}
+
+        For an isochoric process, the difference in heat is given by $dQ = mC_VdT$. Therefore, the entropy is
+        \begin{equation*}
+            S = \int_{P_i}^{P_f} \frac{mC_VdT}{T} dV = \int_{P_i}^{P_f} \frac{mC_VdT}{PV/(Nk_b)} dP =
+            dS_{therm} = Nk_B \log\left(
+                V_f \left(
+                    \frac{P_f V_f^{(C_P/C_V)}}{P_iV_i}
+                \right)^{-\frac{C_V}{C_P-C_V}}
+            \right)
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item The entropy of the mixed system is equal to the entropy of the two component systems after they have the chance to mix together. Each of the expansions is isothermal (because the two gasses are the same temperature, the total temperature will not change.) Therefore, the entropy change of the each gas is
+        \begin{equation*}
+            dS = nR\log(2V/V)
+        \end{equation*}
+        The total entropy is then
+        \begin{equation*}
+            S = 2R\log(2) = \SI{11.5257}{\joule/\kelvin}
+        \end{equation*}
+        \item If one container is twice as big as the other, the total entropy is
+        \begin{equation*}
+            S = R\log(3) + R\log(3/2) = \SI{12.5049}{\joule/\kelvin}
+        \end{equation*}
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

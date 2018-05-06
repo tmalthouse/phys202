@@ -1,0 +1,100 @@
+\documentclass[fleqn]{article}[11pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 1 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item The law of cosines gives that
+        \begin{equation*}
+            v'^2 = v^2 + u^2 - 2uv\cos\theta' \implies v' = \sqrt{v^2+u^2-2uv\cos \theta'}
+        \end{equation*}
+
+        \item The lowest value of $v'$ is when $\theta'=0$, when the flatcar is moving towards the receiver at an infinite distance. The highest value is when $\theta'=pi$, when the flatcar is moving away from the receiver.
+
+        \item The lowest velocity is given by
+        \begin{equation*}
+            v' = \sqrt{(\SI{330}{\m/\s})^2+(\SI{15}{\m/\s})^2-2(\SI{330}{\m/\s})(\SI{15}{\m/\s})\cos (0)} = \SI{315}{\m/\s}
+        \end{equation*}
+        and the highest velocity is given by
+        \begin{equation*}
+            v' = \sqrt{(\SI{330}{\m/\s})^2+(\SI{15}{\m/\s})^2-2(\SI{330}{\m/\s})(\SI{15}{\m/\s})\cos (\pi)} = \SI{345}{\m/\s}.
+        \end{equation*}
+        This difference should be easily detectable.
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item Using the equations derived in class,
+        \begin{align*}
+            \Delta t &= t_2-t_1 = \frac{2L}{c}\left(\frac{1}{1-(v/c)^2} - \frac{1}{\sqrt{1-(v/c)^2}}\right) \\
+            &\approx \frac{2L}{c} \left(\frac{1}{1-\frac{v^2}{c^2}} - \frac{1}{1-\frac{v^2}{2c^2}}\right) \\
+            &= \frac{2cL}{c^2-v^2} - \frac{2cL}{c^2-\frac{v^2}{2}}
+        \end{align*}
+        \item \label{phase-shift} The period of the wave is given by $T = \lambda/c$. Then the phase shift is given by
+        \begin{equation*}
+            N = \frac{\frac{2cL}{c^2-v^2} - \frac{2cL}{c^2-\frac{v^2}{2}}}{\frac{\lambda}{c}} =
+            \frac{2 c^2 L}{\lambda \left(c^2-v^2\right)}-\frac{4 c^2 L}{\lambda \left(2 c^2-v^2\right)}
+        \end{equation*}
+
+        \item If the second leg has length $L+\Delta L$, the new difference in time is given by
+        \begin{equation*}
+            \Delta t = \frac{2(L+\Delta L)}{c-\frac{v^2}{c}} - \frac{2L}{c-\frac{v^2}{2c}}
+        \end{equation*}
+        and the subsequent phase shift is given by
+        \begin{equation*}
+            N = \frac{2(L+\Delta L)\lambda}{c^2-v^2} - \frac{2L\lambda}{c^2-\frac{v^2}{2}}
+        \end{equation*}
+        The difference between this phase shift and the one calculated earlier is
+        \begin{equation*}
+            \frac{2 \Delta L \lambda}{c^2-v^2}.
+        \end{equation*}
+        However, rotating the apparatus by $\SI{90}{\degree}$ doubles this difference, so
+        \begin{equation*}
+            \Delta N = \frac{4\Delta L \lambda}{c^2-v^2}
+        \end{equation*}
+
+        \item Using the equation from \ref{phase-shift}, the expected fringe shift is
+        \begin{align*}
+            N &= \frac{2 c^2 L}{\lambda \left(c^2-v^2\right)}-\frac{4 c^2 L}{\lambda \left(2 c^2-v^2\right)} = 0.186
+        \end{align*}
+    \end{enumerate}
+
+
+
+\end{enumerate}
+
+
+\end{document}

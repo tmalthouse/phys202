@@ -1,0 +1,124 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit{\calorie}{cal}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 17 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item These neutrons' kinetic energy is
+        \begin{equation*}
+            K = \frac{3}{2}kT = \frac{3}{2} (\SI{1.38e-23}{\joule/\kelvin})(\SI{293}{\kelvin}) = \SI{6.06e-21}{\joule} = \SI{0.038}{\eV}
+        \end{equation*}
+
+        \item To calculate the momentum of one of these neutrons, we need its velocity. This is given by
+        \begin{equation*}
+            v = \sqrt{\frac{2K}{m}} = \sqrt{\frac{2(\SI{6.06e-21}{\joule})}{\SI{1.67e-27}{\kg}}} = \SI{2695}{\m/\s}
+        \end{equation*}
+        Then the momentum is
+        \begin{equation}
+            p = mv = (\SI{1.67e-27}{\kg})(\SI{2695}{\m/\s}) = \SI{7.20e-24}{\kg\m/\s}
+        \end{equation}
+        and the de Broglie wavelength is
+        \begin{equation*}
+            \lambda = \frac{h}{p} = \frac{\SI{6.626e-34}{\joule\s}}{\SI{7.20e-24}{\kg\m/\s}} = \SI{9.21e-11}{\meter} = \SI{92.08}{\pico\meter}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item Since $K = \frac{1}{2}mv^2 = \frac{5}{2} k T$, and $p = mv$, the momentum
+        \begin{equation*}
+            p = m\sqrt{\frac{5 k T}{m}} = \sqrt{5 m k T}
+        \end{equation*}
+        and the de Broglie wavelength is
+        \begin{equation*}
+            \lambda = \frac{h}{\sqrt{5 m k T}} = \frac{\SI{6.626e-34}{\joule\s}}{\sqrt{5 (\SI{2.3e-24}{\kg})(\SI{1.38e-23}{\joule/\kelvin})(\SI{293}{\kelvin})}} = \SI{1.14e-10}{\meter} = \SI{3.073}{\pico\meter}
+        \end{equation*}
+
+        \item In a cubic meter of air, there are $\SI{1.292}{\kg}$ of gas. Assuming all of this gas is $N_2$, which has a molar mass of $\SI{28.03}{\g/\mol}$. Therefore, there are $1.292/0.02803 = \SI{46.09}{\mol/\m^3}$. Each molecule therefore occupies a volume of about
+        \begin{equation*}
+            V_{\text{molecule}} \approx \frac{\SI{1}{\m^3}}{(\SI{46.09}{\mol/\m^3})(\SI{6.022e23}{/\mol})} = \SI{3.6e-26}{\m^3}
+        \end{equation*}
+        and so the distance between molecules is about $\sqrt[3]{\SI{3.6e-26}{\m^3}} = \SI{3.3e-9}{\m} = \SI{3.303}{\nano\meter}$. Since this is about 3 orders of magnitude larger than the de Broglie wavelength, quantum effects are not very important at room temperature.
+
+        \item Since the general rule of thumb is that quantum effects become important when the distance between molecules is less than the de Broglie wavelength, we need to find $T$ s.t.
+        \begin{equation*}
+            \lambda = \frac{h}{p} \approx \SI{3.303}{\nano\meter}
+        \end{equation*}
+        which can be rewritten as
+        \begin{equation*}
+            \SI{3.303}{\nano\meter} = \frac{\SI{6.602e-34}{\joule\s}}{\sqrt{5 (\SI{2.3e-24}{\kg}) (\SI{1.38e-23}{\joule/\kelvin}) T}} \implies T = \SI{0.00025}{\kelvin}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item According to the email, we didn't have to do part (a.)
+
+        \item The rest mass energy of a proton is
+        \begin{equation*}
+            E = mc^2 = (\SI{1.672e-27}{\kg})(\SI{3e8}{\m/\s})^2 = \SI{1.505e-10}{\joule} = \SI{939.35}{\mega\eV}
+        \end{equation*}
+        Since the rest mass energy is so much larger than the kinetic energy, we can use classical mechanics. The velocity of the proton in the nucleus is
+        \begin{equation*}
+            v = \sqrt{\frac{2K}{m}} = \sqrt{\frac{2(\SI{10}{\mega\eV})}{\SI{1.672e-27}{\kg}}} = \SI{4.38e7}{\m/\s}
+        \end{equation*}
+        Therefore, the de Broglie wavelength is
+        \begin{equation*}
+            \lambda = \frac{h}{p} = \frac{(\SI{6.626e-34}{\joule\s})}{(\SI{4.38e7}{\m/\s})(\SI{1.672e-27}{\kg})} = \SI{9.05e-15}{\m}
+        \end{equation*}
+        and
+        \begin{equation*}
+            \frac{\lambda}{r} = \frac{\SI{9.05e-15}{\m}}{\SI{1e-12}{\m}} = 0.00905
+        \end{equation*}
+        so wave mechanics are not needed for this problem.
+
+        \item The rest mass energy of an electron is $\SI{510}{\kilo\eV}$, so we can use classical mechanics for this problem. The electrons have a velocity of
+        \begin{equation*}
+            v = \sqrt{\frac{2K}{m}} = \sqrt{\frac{2(\SI{1.602e-15}{\joule})}{\SI{9.11e-31}{\kg}}} = \SI{5.93e7}{\m/\s}
+        \end{equation*}
+        and a de Broglie wavelength of
+        \begin{equation*}
+            \lambda  = \frac{h}{p} = \frac{\SI{6.626e-34}{\joule\s}}{(\SI{5.93e7}{\m/\s})(\SI{9.11e-31}{\kg})} = \SI{1.22e-11}{\meter}
+        \end{equation*}
+        Even if we wanted the resolution of our screen to be $\SI{1}{\micro\meter}$, we would not have to worry about wave effects. Since real resolutions are far less fine than this, these designers do not have to account for quantum physics.
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}

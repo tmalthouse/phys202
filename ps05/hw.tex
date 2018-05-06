@@ -1,0 +1,120 @@
+\documentclass[fleqn]{article}[12pt]
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{siunitx}
+\usepackage{amsthm}
+\usepackage{booktabs}
+
+
+\setlength\parindent{0pt}
+
+\cfoot{\thepage \hspace{1pt} / \pageref{LastPage}}
+\newcommand{\integral}[4]{\int_#1^#2 \! #3 \, \mathrm{d}#4}
+\newcommand{\dif}{\mathrm{d}}
+\newcommand{\diracraw}{\left(\int_{-\infty}^{\infty} e^{i2\pi (f - \bar f)}\, dt\right)}
+\usepackage{caption}
+\captionsetup{justification=raggedright,singlelinecheck=false}
+\DeclareMathOperator{\Imag}{Im}
+
+
+\DeclareSIUnit\year{yr}
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\R}{\mathbb{R}}
+
+
+\begin{document}
+    \begin{tabular}{l}
+        ID \#33 \\
+        Problem Set 5 \\
+        Physics 202 \\
+        \today
+    \end{tabular}
+
+\begin{enumerate}
+    \item
+    \begin{enumerate}
+        \item \begin{tabular}{llll}
+            \toprule
+            &First Ball($\rho_1$) & Second Ball($\rho_2$) & Total \\ \midrule
+            Before: & $\gamma_1 m (a,b)$ & $\gamma_2 m (-a,-b)$ & $(0,0)$\\
+            After: & $\gamma_1 m (a,-b)$ & $\gamma_2 m (-a,b)$ & $(0,0)$\\ \bottomrule
+
+        \end{tabular}
+
+        The $\gamma$ is the same for both balls because the absolute value of both balls' velocities is the same.
+
+        \item
+        \begin{tabular}{llll}
+            \toprule
+            &First Ball($\rho_1$) & Second Ball($\rho_2$) & Total \\ \midrule
+            Before: & $m \left(0, \frac{b}{\gamma(1-\beta^2)}\right)$ & $m \left(\frac{-2a}{1+\beta^2}, \frac{-b}{\gamma(1-\beta^2)}\right)$ & $m\left(-\frac{2 a}{b^2+1},0\right)$\\
+            After: & $m \left(0, \frac{-b}{\gamma(1-\beta^2)}\right)$ & $m \left(\frac{-2a}{1+\beta^2}, \frac{b}{\gamma(1-\beta^2)}\right)$ & $m\left(-\frac{2 a}{b^2+1},0\right)$\\ \bottomrule
+
+        \end{tabular}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item \begin{equation*}
+            E^2 = \left(\frac{1}{\sqrt{1-(v/c)^2}} m v c\right)^2 + (mc^2)^2
+            = m^2c^4\left(\frac{v^2}{c^2\sqrt{1-(v/c)^2}} + 1\right) = m^2c^4\left(\frac{dt}{dt_0}\right)^2 \implies E = mc^2\frac{dt}{dt_0}
+    \end{equation*}
+
+        \item The transformations we will need are
+        \begin{equation*}
+            dt' = \gamma dt, \qquad d\vec{r}^{'} = d\vec{r}\frac{\hat{x}}{\gamma}
+        \end{equation*}
+        Then, in $S^{'}$,
+        \begin{equation*}
+            \vec{p}' = m \frac{d\vec{r}'}{dt_0} = m \frac{d\vec{r}\frac{\hat{x}}{\gamma}}{dt_0} = m \hat{x} \sqrt{1-(u/c)^2}\frac{d\vec{r}}{dt_0}
+        \end{equation*}
+        and
+        \begin{equation*}
+            E = mc^2\frac{dt}{dt_0} = mc^2\frac{\gamma dt}{dt_0} = \frac{mc^2}{\sqrt{1-(u/c)^2}}\frac{dt}{dt_0}
+        \end{equation*}
+    \end{enumerate}
+
+    \item \begin{enumerate}
+        \item \begin{equation*}
+            \vec{p}_1 = \frac{m_e v_i}{\sqrt{1-(v_i/c)^2}}\hat{x}
+        \end{equation*}
+        \begin{equation*}
+            \vec{p}_{1,f} = \frac{m_e\vec{v}_{1,f}}{\sqrt{1-(v_{1,f}/c)^2}} =
+            \frac{m_e v_{1,f}}{\sqrt{1-(v_{1,f}/c)^2}} (\cos{\theta_1}, \sin{\theta_1})
+        \end{equation*}
+
+        \item
+        \begin{equation*}
+            \frac{m_e v_i}{\sqrt{1-(v_i/c)^2}}\hat{x} = \frac{m_e v_{1,f}}{\sqrt{1-(v_{1,f}/c)^2}} (\cos{\theta_1}, \sin{\theta_1}) + \frac{m_e v_{2,f}}{\sqrt{1-(v_{2,f}/c)^2}} (\cos{\theta_2}, \sin{\theta_2})
+        \end{equation*}
+
+        Since the total momentum only has an $x$-component, the $y$-components must cancel out, so
+        \begin{equation*}
+            p_{1,f}\sin \theta_1 = -p_{2,f}\sin\theta_2 \implies p_{2,f} = -\frac{\sin\theta_1}{\sin{\theta_2}}p_{1,f}
+        \end{equation*}
+        Plugging this back into the earlier equation gives that
+        \begin{equation*}
+            p_{1,f}-\frac{\sin\theta_1}{\sin{\theta_2}}p_{1,f} = p_i \implies \frac{m_e\vec{v}_{1,f}}{\sqrt{1-(v_{1,f}/c)^2}} \left(1-\frac{\sin\theta_1}{\sin{\theta_2}}\right) = \frac{m_e v_i}{\sqrt{1-(v_i/c)^2}}
+        \end{equation*}
+
+
+
+
+        \item
+        \begin{equation*}
+            p_{2,f} = \frac{m_e\vec{v}_{2,f}}{\sqrt{1-(v_{2,f}/c)^2}} \implies v_{2,f}(p_{2,f}) =
+            \frac{c p_{2,f}}{\sqrt{c^2 m_e^2 + p_{2,f}^2}}
+        \end{equation*}
+    \end{enumerate}
+\end{enumerate}
+
+
+\end{document}
